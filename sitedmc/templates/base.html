@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+      {% block title %} {% endblock %}
+    </title>
+    <link type="text/css" rel="stylesheet" href="{% static 'words/css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'words/images/favicon.ico' %}">
+    <!-- <style>
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        background-color: #333;
+    }
+    li{
+        float: left;
+    }
+    li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    li a:hover:not(.active){
+        background-color: #111;
+    }
+    .active{
+        background-color: #334d4d;
+    }
+    .dropdown{
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-content{
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 100%;
+        overflow: auto;
+        shadow-box: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+    }
+    .dropdown:hover .dropdown-content{
+    display: block;
+    }
+    </style>
+    -->
+
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#home">Words</a></li>
+        <li style="float:right;"><a href="#home">Login</a></li>
+    </ul>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

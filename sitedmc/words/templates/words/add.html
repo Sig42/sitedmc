@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Adding words
+{% endblock %}
+
+{% block content %}
+<h1>Add words page.</h1>
+<form action="">
+    <label for="word">Слово:</label><br>
+    <input type="text" id="word" name="word"><br>
+    <label for="translation">Перевод:</label><br>
+    <input type="text" id="translation" name="translation"><br>
+    <input type="submit">Добавить</input>
+</form>
+{% endblock %}

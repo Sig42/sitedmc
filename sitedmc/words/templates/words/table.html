@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Table of words
+{% endblock %}
+
+{% block content %}
+<h1>Table of words page.</h1>
+
+<table style="width:100%">
+    <tr>
+        <th>Number</th>
+        <th>Word</th>
+        <th>Translation</th>
+        <th>Level</th>
+        <th>Created</th>
+        <th>Last update</th>
+    </tr>
+    {% for word in words %}
+    <tr>
+        <th></th>
+        <th>{{ word.name }}</th>
+        <th>{{ word.translation }}</th>
+        <th>{{ word.level }}</th>
+        <th>{{ word.create_time }}</th>
+        <th>{{ word.update_time }}</th>
+    </tr>
+    {% endfor%}
+</table>
+{% endblock %}
+
