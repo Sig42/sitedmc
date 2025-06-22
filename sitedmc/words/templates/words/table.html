@@ -7,9 +7,8 @@ Table of words
 {% block content %}
 <h1>Table of words page.</h1>
 
-<table style="width:100%">
+<table id="table" style="width:100%">
     <tr>
-        <th>Number</th>
         <th>Word</th>
         <th>Translation</th>
         <th>Level</th>
@@ -18,14 +17,12 @@ Table of words
     </tr>
     {% for word in words %}
     <tr>
-        <th></th>
-        <th>{{ word.name }}</th>
-        <th>{{ word.translation }}</th>
-        <th>{{ word.level }}</th>
-        <th>{{ word.create_time }}</th>
-        <th>{{ word.update_time }}</th>
+        <td>{{ word.name }}</td>
+        <td>{{ word.translation }}</td>
+        <td>{{ word.level }}</td>
+        <td>{{ word.create_time }}</td>
+        <td>{{ word.update_time }}</td>
     </tr>
     {% endfor%}
 </table>
 {% endblock %}
-
