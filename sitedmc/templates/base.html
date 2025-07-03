@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>
-      {% block title %} {% endblock %}
+      {% block title %}
+      {{ title }}
+      {% endblock %}
     </title>
     <link type="text/css" rel="stylesheet" href="{% static 'words/css/style.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'words/images/favicon.ico' %}">

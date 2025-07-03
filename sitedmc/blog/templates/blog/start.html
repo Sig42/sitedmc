@@ -5,5 +5,9 @@ Blog
 {% endblock %}
 
 {% block content %}
-<h1>Here is start page for blog.</h1>
+<h1>{{ title }}</h1>
+{% for post in posts %}
+    {{ post.title }}
+    <p><a href="{{ post.get_absolute_url }}">Read it</a></p>
+{% endfor %}
 {% endblock %}
