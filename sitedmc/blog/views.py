@@ -1,9 +1,11 @@
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
+
 from .models import Blog, Tag
 from.forms import AddPostForm
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView,FormView
 
 
 class Start(ListView):
@@ -16,33 +18,40 @@ class Start(ListView):
         return Blog.published.all()
 
 
-class AddPost(View):
-    def post(self, request):
-        form = AddPostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('start')
-        data = {
-            'title': 'Adding post',
-            'form': form
-        }
-        return render(request, 'blog/add_post.html', data)
+class AddPost(FormView):
+    form_class = AddPostForm
+    template_name = 'blog/add_post.html'
+    success_url = reverse_lazy('start')
+    extra_context = {'title': 'Add new post'}
 
-    def get(self, request):
-        form = AddPostForm()
-        data = {
-            'title': 'Adding post',
-            'form': form
-        }
-        return render(request, 'blog/add_post.html', data)
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 
-# class PostsByName(ListView): !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class PostsByName(ListView):
+    template_name = 'blog/posts_by_name.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        return Blog.published.filter(author__username=self.kwargs['blogger_name'])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        b_name = self.kwargs['blogger_name'].capitalize()
+        context['blogger_name'] = b_name
+        context['title'] = f'Here are posts of {b_name}'
+        return context
 
 
-def posts_by_name(request, blogger_name):
-    return render(request, 'blog/posts_by_name.html',
-                  {'blogger_name': blogger_name, 'title': f"{blogger_name}'s posts"})
+class ShowPost(DetailView):
+    # model = Blog
+    template_name = 'blog/show_post.html'
+    context_object_name = 'post'
+    slug_url_kwarg = 'post_slug'
+
+    def get_object(self, queryset=None):
+        return  get_object_or_404(Blog.published, slug=self.kwargs[self.slug_url_kwarg])
 
 
 def archive(request, year):
@@ -53,16 +62,6 @@ def archive(request, year):
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('Страница не найдена.')
-
-
-def show_post(request, post_slug):
-    post = get_object_or_404(Blog, slug=post_slug)
-    data = {
-        'title': post.title,
-        'content': post.content,
-        'created': post.create_time
-    }
-    return render(request, 'blog/show_post.html', data)
 
 
 class PostsByTag(ListView):
@@ -76,6 +75,5 @@ class PostsByTag(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         t_name = self.kwargs['tag_slug'].capitalize()
-        context['tag_name'] = t_name
         context['title'] = f'Posts by tag {t_name}'
         return context

@@ -1,11 +1,11 @@
 {% extends 'base.html'%}
 
 {% block title %}
-{{ title }}
+{{ post.title|capfirst }}
 {% endblock %}
 
 {% block content %}
-<h1>{{ title }}</h1>
-<h3>Blog was created: {{ created }}</h3>
-{{ content|linebreaks }}
+<h1>{{ post.title|capfirst }}</h1>
+<h3>Blog was created: {{ post.create_time }}</h3>
+{{ post.content|linebreaks }}
 {% endblock %}

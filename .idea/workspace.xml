@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="AGAIN create app blog, pathes: start, add, postsByName, archive;">
-      <change afterPath="$PROJECT_DIR$/sitedmc/blog/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/add_post.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_tag.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" afterDir="false" />
+    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="Some migrations, create some class views">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_name.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_name.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/words/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750737653641</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Some migrations, create some class views">
+      <option name="closed" value="true" />
+      <created>1751515775148</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1751515775148</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -159,6 +158,7 @@
     <MESSAGE value="word model migration - meta ordering" />
     <MESSAGE value="create app blog, pathes: start, add, postsByName, archive;" />
     <MESSAGE value="AGAIN create app blog, pathes: start, add, postsByName, archive;" />
-    <option name="LAST_COMMIT_MESSAGE" value="AGAIN create app blog, pathes: start, add, postsByName, archive;" />
+    <MESSAGE value="Some migrations, create some class views" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some migrations, create some class views" />
   </component>
 </project>
