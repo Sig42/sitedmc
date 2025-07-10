@@ -7,7 +7,36 @@ Blog
 {% block content %}
 <h1>{{ title }}</h1>
 {% for post in posts %}
-    {{ post.title }}
+    <h3>{{ post.title }}</h3>
+    <h4>Created by {{ post.author.username|default:'Unknown' }}</h4>
     <p><a href="{{ post.get_absolute_url }}">Read it</a></p>
 {% endfor %}
+{% endblock %}
+
+{% block nav_pages %} <!-- It should be placed in includes -->
+{% if page_obj.has_other_pages %}
+<nav>
+    <ul>
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+        </li>
+        {% endif%}
+        {% for p in paginator.page_range %}
+            {% if page_obj.number == p %}
+            <li>{{ p }}</li>
+            {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+            <li>
+                <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li>
+            <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+        </li>
+        {% endif%}
+    </ul>
+</nav>
+{% endif %}
 {% endblock %}

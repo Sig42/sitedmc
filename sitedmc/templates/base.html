@@ -60,10 +60,18 @@
         <li class="menu_li"><a class="active" href="#home">Home</a></li>
         <li class="menu_li"><a href="#home">Words</a></li>
         <li class="menu_li"><a href="#home">Blog</a></li>
-        <li class="menu_li" style="float:right;"><a href="#home">Login</a></li>
+        {% if user.is_authenticated %}
+            <li class="menu_li" style="float:right;"><a href="{% url 'users:logout' %}">Logout</a></li>
+        {% else %}
+            <li class="menu_li" style="float:right;"><a href="{% url 'users:login' %}">Login</a></li>
+        {% endif %}
+
     </ul>
 
     {% block content %}
+    {% endblock %}
+
+    {% block nav_pages %}
     {% endblock %}
 </body>
 </html>

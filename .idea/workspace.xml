@@ -4,12 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="Some migrations, create some class views">
+    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="Form view class's created">
+      <change afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/delete_post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/registration.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/registration_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_name.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_name.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/add_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/add_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/sitedmc/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/sitedmc/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/sitedmc/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/sitedmc/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -149,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751515775148</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Form view class's created">
+      <option name="closed" value="true" />
+      <created>1751697648147</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1751697648147</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -159,6 +189,7 @@
     <MESSAGE value="create app blog, pathes: start, add, postsByName, archive;" />
     <MESSAGE value="AGAIN create app blog, pathes: start, add, postsByName, archive;" />
     <MESSAGE value="Some migrations, create some class views" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some migrations, create some class views" />
+    <MESSAGE value="Form view class's created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Form view class's created" />
   </component>
 </project>

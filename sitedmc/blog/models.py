@@ -27,7 +27,7 @@ class Blog(models.Model):
         return self.title
 
     def get_absolute_url(self): # Чтобы иметь ссылку в шаблоне, на конкретный пост
-        return reverse('show_post', kwargs={'post_slug': self.slug})
+        return reverse('blog:show_post', kwargs={'post_slug': self.slug})
 
     class Meta:
         verbose_name = 'Post'
@@ -43,7 +43,7 @@ class Tag(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('posts_by_tag', kwargs={'tag_slug': self.slug})
+        return reverse('blog:posts_by_tag', kwargs={'tag_slug': self.slug})
 
     class Meta:
         verbose_name = 'Tag'
