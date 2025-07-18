@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% block head %}
+    {% endblock %}
     <title>
       {% block title %}
       {{ title }}
@@ -57,15 +59,30 @@
 </head>
 <body>
     <ul class="menu_ul">
-        <li class="menu_li"><a class="active" href="#home">Home</a></li>
-        <li class="menu_li"><a href="#home">Words</a></li>
-        <li class="menu_li"><a href="#home">Blog</a></li>
+        {% if current_app == 'Home' %}
+        <li class="menu_li"><a class="active" href="{% url 'users:home' %}">Home</a></li>
+        <li class="menu_li"><a href="{% url 'words:start' %}">Words</a></li>
+        <li class="menu_li"><a href="{% url 'blog:start' %}">Blog</a></li>
+        {% elif current_app == 'Blog' %}
+        <li class="menu_li"><a href="{% url 'users:home' %}">Home</a></li>
+        <li class="menu_li"><a href="{% url 'words:start' %}">Words</a></li>
+        <li class="menu_li"><a class="active" href="{% url 'blog:start' %}">Blog</a></li>
+        {% elif current_app == 'Words' %}
+        <li class="menu_li"><a href="{% url 'users:home' %}">Home</a></li>
+        <li class="menu_li"><a class="active" href="{% url 'words:start' %}">Words</a></li>
+        <li class="menu_li"><a href="{% url 'blog:start' %}">Blog</a></li>
+        {% else %}
+        <li class="menu_li"><a href="{% url 'users:home' %}">Home</a></li>
+        <li class="menu_li"><a href="{% url 'words:start' %}">Words</a></li>
+        <li class="menu_li"><a href="{% url 'blog:start' %}">Blog</a></li>
+        {% endif %}
+
         {% if user.is_authenticated %}
             <li class="menu_li" style="float:right;"><a href="{% url 'users:logout' %}">Logout</a></li>
+            <li class="menu_li" style="float:right;"><a href="{% url 'users:profile' %}">{{ user.username }}</a></li>
         {% else %}
             <li class="menu_li" style="float:right;"><a href="{% url 'users:login' %}">Login</a></li>
         {% endif %}
-
     </ul>
 
     {% block content %}

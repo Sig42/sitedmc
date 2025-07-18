@@ -1,10 +1,16 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.urls import reverse, reverse_lazy
 from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm, ChangePasswordForm
+
+def home(request):
+    title = 'Home page'
+    current_app = 'Home'
+    return render(request, 'users/home.html', {'title': title, 'current_app': current_app})
 
 
 class LoginUser(LoginView):

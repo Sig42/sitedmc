@@ -1,4 +1,9 @@
 {% extends 'base.html'%}
+{% load static %}
+
+{% block head %}
+<link type="text/css" rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
 
 {% block title %}
 {{ post.title|capfirst }}
@@ -6,6 +11,7 @@
 
 {% block content %}
 <h1>{{ post.title|capfirst }}</h1>
-<h3>Blog was created: {{ post.create_time }}</h3>
-{{ post.content|linebreaks }}
+<h2>By {{ post.author.username|default:'Unknown' }}</h2>
+<h2>Post was created: {{ post.create_time }}</h2>
+<div class="central_message_box">{{ post.content|linebreaks }}</div>
 {% endblock %}

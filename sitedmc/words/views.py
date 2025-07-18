@@ -5,7 +5,7 @@ from .models import List, Word
 
 def start(request):
     l = List.objects.get(pk=1)
-    data = {'p1': l, 'p2': 'List of verbs', 'p3': 'Empty list'}
+    data = {'p1': l, 'p2': 'List of verbs', 'p3': 'Empty list', 'current_app': 'Words'}
     return render(request, 'words/start.html', data)
 
 
@@ -18,13 +18,13 @@ def learn(request):
         pass
     else:
         words = Word.objects.all()
-        return render(request,  'words/learn.html', {'words': words})
+        return render(request,  'words/learn.html', {'words': words, 'current_app': 'Words'})
 
 
 def table(request):
     words = Word.objects.all()
-    return render(request, 'words/table.html', {'words': words})
+    return render(request, 'words/table.html', {'words': words, 'current_app': 'Words'})
 
 
 def add_word(request):
-    return render(request, 'words/add.html')
+    return render(request, 'words/add.html', {'current_app': 'Words'})

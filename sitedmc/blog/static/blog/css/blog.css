@@ -1,0 +1,149 @@
+body {
+    background-image: url('../images/desktop.jpg');
+    background-size: 100%;
+    }
+
+h1 {
+    text-align: center;
+    margin-top:50px;
+}
+
+h2, h3 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.central_message_box {
+  max-width: 800px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.7);/*rgba(96, 0, 128,  0.7);*/
+  border-radius: 30px;
+  text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+    padding-right: 40px;
+}
+
+div.inside li{
+    display: inline;
+}
+
+.page_selector_button {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.actual {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.read_post_a{
+    margin: 30px;
+}
+
+.read_post_a a{
+    padding: 8px;
+    border-radius: 8px;
+    color: black;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: rgba(204, 255, 255, 0.9);
+}
+
+input[type=text], textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    display:block;
+    margin:auto;
+    cursor:pointer;
+}
+
+.form-container{
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin: 10px 50px;
+}
+
+.col-25 {
+    float: left;
+    width: 15%;
+    margin-top: 6px;
+}
+
+.col-65 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+.row::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit]{
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+
+/*
+.form-p{
+    margin-left: 50px;
+    box-sizing: border-box;
+}
+
+.form-label{
+    margin-left: 50px;
+}
+
+.form-button{
+    display:block;
+    margin:auto;
+    cursor:pointer;
+}
+
+.form-central-box{
+  max-width: 1000px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.7);   !!rgba(96, 0, 128,  0.7);!!
+  border-radius: 30px;
+}
+
+textarea{
+    resize: none;
+}
+*/

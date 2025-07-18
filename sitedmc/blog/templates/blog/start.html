@@ -1,42 +1,55 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-Blog
+{% block head %}
+<link type="text/css" rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>{{ title }}</h1>
-{% for post in posts %}
-    <h3>{{ post.title }}</h3>
-    <h4>Created by {{ post.author.username|default:'Unknown' }}</h4>
-    <p><a href="{{ post.get_absolute_url }}">Read it</a></p>
-{% endfor %}
-{% endblock %}
-
-{% block nav_pages %} <!-- It should be placed in includes -->
-{% if page_obj.has_other_pages %}
-<nav>
-    <ul>
-        {% if page_obj.has_previous %}
-        <li>
-            <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
-        </li>
-        {% endif%}
+    <h1>Fresh posts</h1>
+    <div class="central_message_box">
+        {% for post in posts %}
+            <h1>{{ post.title }}</h1>
+            <h2>Created by {{ post.author.username|default:'Unknown' }}</h2>
+        <div class="read_post_a"><a href="{{ post.get_absolute_url }}">Read it</a></div>
+        {% if not forloop.last %}
+        <hr style="width:50%;height:2px;border-width:0;color:black;background-color:black;">
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% if page_obj.has_other_pages %}
+        <ul>
+            {% if page_obj.has_previous %}
+                <li>
+                    <a href="?page={{ page_obj.previous_page_number }}">
+                        <button class="page_selector_button">&lt;</button>
+                    </a>
+                </li>
+            {% endif %}
         {% for p in paginator.page_range %}
             {% if page_obj.number == p %}
-            <li>{{ p }}</li>
+                <li>
+                    <button class="page_selector_button actual">{{ p }}</button>
+                </li>
             {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
-            <li>
-                <a href="?page={{ p }}">{{ p }}</a>
-            </li>
+                <li>
+                    <a href="?page={{ p }}">
+                        <button class="page_selector_button">{{ p }}</button>
+                    </a>
+                </li>
             {% endif %}
         {% endfor %}
         {% if page_obj.has_next %}
-        <li>
-            <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
-        </li>
+            <li>
+                <a href="?page={{ page_obj.next_page_number }}">
+                    <button class="page_selector_button">&gt;</button>
+                </a>
+            </li>
         {% endif%}
-    </ul>
-</nav>
-{% endif %}
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block nav_pages %} <!-- It should be placed in includes -->
+
 {% endblock %}

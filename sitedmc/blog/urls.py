@@ -13,6 +13,7 @@ urlpatterns = [
     path('archive/<conv_year:year>', views.archive, name='archive'),
     path('post/<slug:post_slug>', views.ShowPost.as_view(), name='show_post'),
     path('tag/<slug:tag_slug>', views.PostsByTag.as_view(), name='posts_by_tag'),
+    # path('get_some/<int:pk>', views.get_some, name='get_some'),
 ]
 
 handler404 = views.page_not_found

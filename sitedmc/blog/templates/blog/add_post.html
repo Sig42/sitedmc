@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link type="text/css" rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
 
 {% block content %}
 <h1>{{ title }}</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-<button type="submit">Submit</button>
-</form>
+<div class="form-container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for f in form %}
+        <div class="row">
+            <div class="col-25">
+                <label for="{{ f.id_for_label }}">{{ f.label }}</label>
+            </div>
+            <div class="col-65">
+                {{ f }}
+            </div>
+        </div>
+        {% endfor %}
+    <input type="submit" value="Submit">
+    </form>
+</div>
 {% endblock %}

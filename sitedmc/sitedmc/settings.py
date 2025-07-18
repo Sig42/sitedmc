@@ -10,9 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 # SUPERUSER - admin, password - admin1admin
+# dmchankov@gmail.com pass - [{--!12sdf}]
 from pathlib import Path
 
-from django.conf.global_settings import LOGIN_REDIRECT_URL, EMAIL_BACKEND
+from django.conf.global_settings import LOGIN_REDIRECT_URL, EMAIL_BACKEND, EMAIL_HOST_PASSWORD, DEFAULT_FROM_EMAIL, \
+    SERVER_EMAIL
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -134,4 +136,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #LOGOUT_REDIRECT_URL = 'blog:start'
 LOGIN_URL = 'users:login'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'chankovdmitry@yandex.ru'
+EMAIL_HOST_PASSWORD = 'qoefjftyankzxvxp'
+EMAIL_USE_SSL = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
