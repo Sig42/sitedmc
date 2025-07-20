@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block head %}
+<link type="text/css" rel="stylesheet" href="{% static 'users/css/users.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>Hello! It's my study project. </h1>
-<p>You can find here some applications:</p>
-<p>blog -> it's for blogging apparently;</p>
-<p>words -> it's for studying foreign words (I use for english words);</p>
-<p>other apps are coming...</p>
+    <h1>Hello! It's my study project. </h1>
+        <div class="central_message_box">
+            <h2>You can find here some applications:</h2>
+            <div class="left_align_in_central_box">
+                <h4><a class="a_inline" href="{% url 'blog:start' %}">blog</a>
+                    -> it's for blogging apparently;</h4>
+                <h4><a class="a_inline" href="{% url 'words:start' %}">words</a>
+                    -> it's for studying foreign words (I use for english words);</h4>
+            </div>
+            <h4 style="margin-top:30px;">other apps are coming...</h4>
+        </div>
 {% endblock %}

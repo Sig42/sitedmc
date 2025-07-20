@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link type="text/css" rel="stylesheet" href="{% static 'words/css/words.css' %}">
+{% endblock %}
 
 {% block title %}
 Words
 {% endblock %}
+
 
 {% block content %}
 

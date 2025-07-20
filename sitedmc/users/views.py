@@ -19,7 +19,7 @@ class LoginUser(LoginView):
     extra_context = {'title': 'Authentication'}
 
     def get_success_url(self):
-        return reverse_lazy('blog:start')
+        return reverse_lazy('users:home')
 
 
 def logout_user(request):

@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/users.css'%}">
+{% endblock %}
 
 {% block content %}
 <h1>Registration is done successfully.</h1>

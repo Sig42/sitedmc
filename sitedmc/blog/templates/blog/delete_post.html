@@ -6,10 +6,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>Are you sure you want to delete post "{{ object }}"</h1>
+<h1>Are you sure you want to delete post "{{ object }}" ?</h1>
 <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-<button type="submit">Submit</button>
+<div style="text-align:center;">
+    <button style="cursor:pointer;" type="submit">Submit</button>
+    <button><a style="text-decoration:none;color:black;" href="{ url 'blog:start' }">Cancel</a></button>
+</div>
 </form>
 {% endblock %}

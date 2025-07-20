@@ -16,7 +16,7 @@ class Start(ListView):
     template_name = 'blog/start.html'
     context_object_name = 'posts'
     extra_context = {'title': 'Blog', 'current_app': 'Blog'}
-    paginate_by = 4
+    paginate_by = 3
 
     def get_queryset(self):
         return Blog.published.all()
@@ -54,6 +54,7 @@ class PostsByName(ListView):
     template_name = 'blog/posts_by_name.html'
     context_object_name = 'posts'
     extra_context = {'current_app': 'Blog'}
+    paginate_by = 3
 
     def get_queryset(self):
         return Blog.published.filter(author__username=self.kwargs['blogger_name'])
@@ -81,8 +82,8 @@ class ShowPost(DetailView):
 def archive(request, year):
     if year > 2025:
         return redirect('blog:start')
-    post_list = Blog.objects.filter(create_time__year=year)
-    paginator = Paginator(post_list, 4)
+    post_list = Blog.published.filter(create_time__year=year)
+    paginator = Paginator(post_list, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'blog/archive.html',
@@ -99,6 +100,7 @@ class PostsByTag(ListView):
     context_object_name = 'posts'
     allow_empty = False
     extra_context = {'current_app': 'Blog'}
+    paginate_by = 3
 
     def get_queryset(self):
         return Blog.published.filter(tags__slug=self.kwargs['tag_slug'])

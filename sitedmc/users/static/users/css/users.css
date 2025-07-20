@@ -1,5 +1,5 @@
 body {
-    background-image: url('../images/desktop.jpg');
+    background-image: url('../images/white_wall.jpg');
     background-size: 100%;
     }
 
@@ -87,7 +87,7 @@ input[type=submit] {
 
 .form-container{
     border-radius: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 20px;
     margin: 10px 150px;
 }
@@ -100,7 +100,7 @@ input[type=submit] {
 
 .col-65 {
     float: left;
-    width: 75%;
+    width: 65%;
     margin-top: 6px;
 }
 
@@ -117,34 +117,20 @@ input[type=submit] {
     }
 }
 
-
-/*
-.form-p{
-    margin-left: 50px;
-    box-sizing: border-box;
+.a_inline {
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 8px;
+    color: black;
 }
 
-.form-label{
-    margin-left: 50px;
+.a_inline:hover{
+    background-color: rgba(204, 255, 255, 0.9);
 }
 
-.form-button{
-    display:block;
-    margin:auto;
-    cursor:pointer;
+.left_align_in_central_box {
+    text-align: left;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.form-central-box{
-  max-width: 1000px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.7);   !!rgba(96, 0, 128,  0.7);!!
-  border-radius: 30px;
-}
-
-textarea{
-    resize: none;
-}
-*/
