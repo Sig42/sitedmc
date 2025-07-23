@@ -4,34 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="Styling">
-      <change afterPath="$PROJECT_DIR$/sitedmc/users/static/users/css/users.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/users/static/users/images/white_wall.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/words/static/words/css/words.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/words/static/words/images/big_ben.jpg" afterDir="false" />
+    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="Ended styling for users and blog;">
+      <change afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/authors.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/static/blog/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/static/blog/css/blog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/delete_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/delete_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_name.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_name.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_tag.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_tag.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_complete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/registration_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/registration_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/words/static/words/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/static/words/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/words/templates/words/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/templates/words/start.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752806445726</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Ended styling for users and blog;">
+      <option name="closed" value="true" />
+      <created>1753007570187</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1753007570187</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -212,7 +199,8 @@
     <MESSAGE value="Form view class's created" />
     <MESSAGE value="Login, logout, registration, password things and other" />
     <MESSAGE value="Styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Styling" />
+    <MESSAGE value="Ended styling for users and blog;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ended styling for users and blog;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -10,9 +10,11 @@ urlpatterns = [
     path('update_post/<int:pk>', views.UpdatePost.as_view(), name='update_post'),
     path('delete_post/<int:pk>', views.DeletePost.as_view(), name='delete_post'),
     path('blogger/<slug:blogger_name>', views.PostsByName.as_view(), name='posts_by_name'),
+    # new path for posts by author's ID
     path('archive/<conv_year:year>', views.archive, name='archive'),
     path('post/<slug:post_slug>', views.ShowPost.as_view(), name='show_post'),
     path('tag/<slug:tag_slug>', views.PostsByTag.as_view(), name='posts_by_tag'),
+    path('authors', views.AuthorsList.as_view(), name='authors'),
     # path('get_some/<int:pk>', views.get_some, name='get_some'),
 ]
 

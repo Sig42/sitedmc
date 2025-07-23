@@ -2,21 +2,21 @@
 {% load static %}
 
 {% block head %}
-<link type="text/css" rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h1>Fresh posts</h1>
+<h1>Fresh posts</h1>
     <div class="row">
         <div class="side-column">
-            <div class="read_post_a"><a href="{% url 'blog:authors' %}">Authors</a></div>
+            <div class="read_post_a"><a href="#">Authors</a></div>
             <div class="read_post_a"><a href="#">Tags</a></div>
         </div>
         <div class="central-column">
-            {% for post in posts %}
-                <h2>{{ post.title }}</h2>
-                <h3>Created by {{ post.author.username|default:'Unknown' }}</h3>
-            <div class="read_post_a"><a href="{{ post.get_absolute_url }}">Read it</a></div>
+            {% for author in authors %}
+                <h2>{{ author.username }}</h2>
+                <h3>joined {{ author.date_joined }}</h3>
+            <div class="read_post_a"><a href="{% url 'blog:posts_by_name' %}">View posts</a></div>
             {% if not forloop.last %}
             <hr style="width:50%;height:2px;border-width:0;color:black;background-color:black;">
             {% endif %}
@@ -59,8 +59,4 @@
         </ul>
         </div>
     {% endif %}
-{% endblock %}
-
-{% block nav_pages %} <!-- It should be placed in includes -->
-
 {% endblock %}

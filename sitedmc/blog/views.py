@@ -22,6 +22,16 @@ class Start(ListView):
         return Blog.published.all()
 
 
+class AuthorsList(ListView):
+    template_name = 'blog/authors.html'
+    context_object_name = 'authors'
+    extra_context = {'title': 'Blog', 'current_app': 'Blog'}
+    paginate_by = 3
+
+    def get_queryset(self):
+        return get_user_model().objects.all()
+
+
 class AddPost(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     form_class = AddPostForm
     template_name = 'blog/add_post.html'
