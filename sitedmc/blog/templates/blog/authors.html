@@ -6,17 +6,19 @@
 {% endblock %}
 
 {% block content %}
-<h1>Fresh posts</h1>
+<h1>Authors</h1>
     <div class="row">
         <div class="side-column">
-            <div class="read_post_a"><a href="#">Authors</a></div>
-            <div class="read_post_a"><a href="#">Tags</a></div>
+            <div class="read_post_a"><a href="{% url 'blog:authors' %}">Authors</a></div>
+            <div class="read_post_a"><a href="{% url 'blog:tags' %}">Tags</a></div>
         </div>
         <div class="central-column">
             {% for author in authors %}
                 <h2>{{ author.username }}</h2>
                 <h3>joined {{ author.date_joined }}</h3>
-            <div class="read_post_a"><a href="{% url 'blog:posts_by_name' %}">View posts</a></div>
+            <div class="read_post_a">
+                <a href="{% url 'blog:posts_by_name' author.username|slugify %}">View posts</a>
+            </div>
             {% if not forloop.last %}
             <hr style="width:50%;height:2px;border-width:0;color:black;background-color:black;">
             {% endif %}

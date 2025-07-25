@@ -10,8 +10,8 @@
 <div class="central_message_box">
 {% for item in page_obj %}
     <h1>{{ item.title }}</h1>
-    <h2>Created by {{ item.author.username|default:'Unknown' }}</h2>
-    <div class="read_post_a"><a href="{{ item.get_absolute_url }}">Read it</a></div>
+    <h2>created by {{ item.author.username|default:'Unknown' }}</h2>
+    <div class="read_post_a"><a href="{{ item.get_absolute_url }}">Read</a></div>
     {% if not forloop.last %}
         <hr style="width:50%;height:2px;border-width:0;color:black;background-color:black;">
     {% endif %}

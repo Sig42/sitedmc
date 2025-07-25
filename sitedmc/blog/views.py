@@ -4,10 +4,10 @@ from django.core.paginator import Paginator
 from django.db.transaction import commit
 from django.http import HttpResponseNotFound, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.template.context_processors import request
 from django.urls import reverse_lazy
 from .models import Blog, Tag
 from.forms import AddPostForm
-from django.views import View
 from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView, DeleteView
 
 
@@ -25,11 +25,32 @@ class Start(ListView):
 class AuthorsList(ListView):
     template_name = 'blog/authors.html'
     context_object_name = 'authors'
-    extra_context = {'title': 'Blog', 'current_app': 'Blog'}
+    extra_context = {'title': 'Authors', 'current_app': 'Blog'}
     paginate_by = 3
 
     def get_queryset(self):
         return get_user_model().objects.all()
+
+
+class TagsList(ListView):
+    template_name = 'blog/tags.html'
+    context_object_name = 'tags'
+    extra_context = {'title': 'Tags', 'current_app': 'Blog'}
+    paginate_by = 3
+
+    def get_queryset(self):
+        return Tag.objects.all()
+
+
+class MyPosts(PermissionRequiredMixin, LoginRequiredMixin, ListView):
+    template_name = 'blog/my_posts.html'
+    context_object_name = 'posts'
+    extra_context = {'title': 'Tags', 'current_app': 'Blog'}
+    paginate_by = 3
+    permission_required = 'blog.update_blog'
+
+    def get_queryset(self):
+        return Blog.objects.filter(author=self.request.user.pk)
 
 
 class AddPost(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
