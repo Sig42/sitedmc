@@ -4,18 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="Adding AuthorListView..">
-      <change afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/my_posts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/tags.html" afterDir="false" />
+    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="created: my_posts view, tags view;">
+      <change afterPath="$PROJECT_DIR$/sitedmc/words/migrations/0004_alter_list_slug_alter_word_slug.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/static/blog/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/static/blog/css/blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/add_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/add_post.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/authors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/delete_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/delete_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/my_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/my_posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_name.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_author.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_tag.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_tag.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/tags.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/tags.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/templates/words/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/templates/words/start.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753244511090</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="created: my_posts view, tags view;">
+      <option name="closed" value="true" />
+      <created>1753416538235</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1753416538235</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -214,7 +228,8 @@
     <MESSAGE value="Styling" />
     <MESSAGE value="Ended styling for users and blog;" />
     <MESSAGE value="Adding AuthorListView.." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding AuthorListView.." />
+    <MESSAGE value="created: my_posts view, tags view;" />
+    <option name="LAST_COMMIT_MESSAGE" value="created: my_posts view, tags view;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

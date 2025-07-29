@@ -1,14 +1,13 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
-from django.db.transaction import commit
-from django.http import HttpResponseNotFound, HttpResponse
+from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
-from django.template.context_processors import request
 from django.urls import reverse_lazy
 from .models import Blog, Tag
 from.forms import AddPostForm
-from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
 class Start(ListView):
@@ -42,24 +41,24 @@ class TagsList(ListView):
         return Tag.objects.all()
 
 
-class MyPosts(PermissionRequiredMixin, LoginRequiredMixin, ListView):
+class MyPosts(LoginRequiredMixin, ListView):
     template_name = 'blog/my_posts.html'
     context_object_name = 'posts'
-    extra_context = {'title': 'Tags', 'current_app': 'Blog'}
+    extra_context = {'title': 'My posts', 'current_app': 'Blog'}
     paginate_by = 3
-    permission_required = 'blog.update_blog'
+    # PermissionRequiredMixin, permission_required = 'blog.change_blog'
 
     def get_queryset(self):
         return Blog.objects.filter(author=self.request.user.pk)
 
 
-class AddPost(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
+class AddPost(LoginRequiredMixin, CreateView):
     form_class = AddPostForm
     template_name = 'blog/add_post.html'
     success_url = reverse_lazy('blog:start') # Client will be directed to absolute_url, if this argument is turned off.
     extra_context = {'title': 'Add new post', 'current_app': 'Blog'}
-    permission_required = 'blog.add_blog'
-
+    # permission_required = 'blog.add_blog'
+    # PermissionRequiredMixin,
     def form_valid(self, form):
         x = form.save(commit=False)
         x.author = self.request.user
@@ -73,6 +72,13 @@ class UpdatePost(UpdateView):
     success_url = reverse_lazy('blog:start')
     extra_context = {'title': 'Editing post', 'current_app': 'Blog'}
 
+    def get_object(self, **kwargs):
+        ob = super().get_object(**kwargs)
+        if ob.author.username == self.request.user.username:
+            return ob
+        else:
+            raise PermissionDenied
+
 
 class DeletePost(DeleteView):
     model = Blog
@@ -80,21 +86,28 @@ class DeletePost(DeleteView):
     template_name = 'blog/delete_post.html'
     extra_context = {'current_app': 'Blog'}
 
+    def get_object(self, **kwargs):
+        ob = super().get_object(**kwargs)
+        if ob.author.username == self.request.user.username:
+            return ob
+        else:
+            raise PermissionDenied
 
-class PostsByName(ListView):
-    template_name = 'blog/posts_by_name.html'
+
+class PostsByAuthor(ListView):
+    template_name = 'blog/posts_by_author.html'
     context_object_name = 'posts'
     extra_context = {'current_app': 'Blog'}
     paginate_by = 3
 
     def get_queryset(self):
-        return Blog.published.filter(author__username=self.kwargs['blogger_name'])
+        return Blog.published.filter(author__pk=self.kwargs['author_pk'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        b_name = self.kwargs['blogger_name'].capitalize()
+        b_name = self.request.user.username
         context['blogger_name'] = b_name
-        context['title'] = f'Here are posts of {b_name}'
+        context['title'] = f'Posts of {b_name}'
         return context
 
 
@@ -108,6 +121,7 @@ class ShowPost(DetailView):
     def get_object(self, queryset=None):
         return  get_object_or_404(Blog.published, slug=self.kwargs[self.slug_url_kwarg])
 
+
 # @permission_required(perm=permission you need, raise_exception=True) This is how permission works to function ->
 # -> not classes;
 def archive(request, year):
@@ -118,7 +132,7 @@ def archive(request, year):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'blog/archive.html',
-                  {'year': year, 'title': f'Archive of {year} year',
+                  {'year': year, 'title': f'{year} archive',
                    'page_obj': page_obj, 'paginator': paginator, 'current_app': 'Blog'})
 
 

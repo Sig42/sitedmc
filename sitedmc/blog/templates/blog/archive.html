@@ -6,50 +6,64 @@
 {% endblock %}
 
 {% block content %}
-<h1> This is an archive of {{ year }} year</h1>
-<div class="central_message_box">
-{% for item in page_obj %}
-    <h1>{{ item.title }}</h1>
-    <h2>created by {{ item.author.username|default:'Unknown' }}</h2>
-    <div class="read_post_a"><a href="{{ item.get_absolute_url }}">Read</a></div>
-    {% if not forloop.last %}
-        <hr style="width:50%;height:2px;border-width:0;color:black;background-color:black;">
-    {% endif %}
-{% endfor %}
-</div>
-{% if page_obj.has_other_pages %}
-    <div class="inside">
-    <ul>
-        {% if page_obj.has_previous %}
-            <li>
-                <a href="?page={{ page_obj.previous_page_number }}">
-                    <button class="page_selector_button">&lt;</button>
-                </a>
-            </li>
-        {% endif %}
-    {% for p in paginator.page_range %}
-        {% if page_obj.number == p %}
-            <li>
-                <button class="page_selector_button actual">{{ p }}</button>
-            </li>
-        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
-            <li>
-                <a href="?page={{ p }}">
-                    <button class="page_selector_button">{{ p }}</button>
-                </a>
-            </li>
-        {% endif %}
-    {% endfor %}
-    {% if page_obj.has_next %}
-        <li>
-            <a href="?page={{ page_obj.next_page_number }}">
-                <button class="page_selector_button">&gt;</button>
-            </a>
-        </li>
-    {% endif%}
-    </ul>
+    <h1> This is an archive of {{ year }} year</h1>
+    <div class="row">
+        <div class="side-column">
+            <div class="read_post_a">
+                <a href="{% url 'blog:authors' %}">Authors</a>
+            </div>
+            <div class="read_post_a">
+                <a href="{% url 'blog:tags' %}">Tags</a>
+            </div>
+        </div>
+        <div class="central-column">
+            {% for item in page_obj %}
+                <h2>{{ item.title }}</h2>
+                <h3>created by {{ item.author.username|default:'Unknown' }}</h3>
+                <div class="read_post_a"><a href="{{ item.get_absolute_url }}">Read</a></div>
+                {% if not forloop.last %}
+                    <hr style="width:50%;height:2px;border-width:0;color:black;background-color:black;">
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="side-column">
+            <div class="read_post_a"><a href="{% url 'blog:add_post' %}">Create post</a></div>
+            <div class="read_post_a"><a href="{% url 'blog:my_posts' %}">My posts</a></div>
+        </div>
     </div>
-{% endif %}
+    {% if page_obj.has_other_pages %}
+        <div class="inside">
+        <ul>
+            {% if page_obj.has_previous %}
+                <li>
+                    <a href="?page={{ page_obj.previous_page_number }}">
+                        <button class="page_selector_button">&lt;</button>
+                    </a>
+                </li>
+            {% endif %}
+        {% for p in paginator.page_range %}
+            {% if page_obj.number == p %}
+                <li>
+                    <button class="page_selector_button actual">{{ p }}</button>
+                </li>
+            {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                <li>
+                    <a href="?page={{ p }}">
+                        <button class="page_selector_button">{{ p }}</button>
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <li>
+                <a href="?page={{ page_obj.next_page_number }}">
+                    <button class="page_selector_button">&gt;</button>
+                </a>
+            </li>
+        {% endif%}
+        </ul>
+        </div>
+    {% endif %}
 
 {% endblock %}
 

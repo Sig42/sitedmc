@@ -16,16 +16,17 @@
             {% for author in authors %}
                 <h2>{{ author.username }}</h2>
                 <h3>joined {{ author.date_joined }}</h3>
-            <div class="read_post_a">
-                <a href="{% url 'blog:posts_by_name' author.username|slugify %}">View posts</a>
-            </div>
-            {% if not forloop.last %}
-            <hr style="width:50%;height:2px;border-width:0;color:black;background-color:black;">
-            {% endif %}
+                <div class="read_post_a">
+                    <a href="{% url 'blog:posts_by_author' author.pk %}">View posts</a>
+                </div>
+                {% if not forloop.last %}
+                    <hr style="width:50%;height:2px;border-width:0;color:black;background-color:black;">
+                {% endif %}
             {% endfor %}
         </div>
         <div class="side-column">
-            <p>Filters</p>
+            <div class="read_post_a"><a href="{% url 'blog:add_post' %}">Create post</a></div>
+            <div class="read_post_a"><a href="{% url 'blog:my_posts' %}">My posts</a></div>
         </div>
     </div>
     {% if page_obj.has_other_pages %}

@@ -2,17 +2,34 @@
 {% load static %}
 
 {% block head %}
-<link type="text/css" rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>Are you sure you want to delete post "{{ object }}" ?</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-<div style="text-align:center;">
-    <button style="cursor:pointer;" type="submit">Submit</button>
-    <button><a style="text-decoration:none;color:black;" href="{ url 'blog:start' }">Cancel</a></button>
-</div>
-</form>
+    <h1>Deleting post</h1>
+    <div class="row">
+        <div class="side-column">
+            <div class="read_post_a">
+                <a href="{% url 'blog:authors' %}">Authors</a>
+            </div>
+            <div class="read_post_a">
+                <a href="{% url 'blog:tags' %}">Tags</a>
+            </div>
+        </div>
+        <div class="central-column">
+            <h2>Are you sure you want to delete post "{{ object }}" ?</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <div style="text-align:center;">
+                <button style="cursor:pointer;" type="submit">Submit</button>
+                <button><a style="text-decoration:none;color:black;" href="{% url 'blog:start' %}">Cancel</a></button>
+            </div>
+            </form>
+        </div>
+        <div class="side-column">
+            <div class="read_post_a"><a href="{% url 'blog:add_post' %}">Create post</a></div>
+            <div class="read_post_a"><a href="{% url 'blog:my_posts' %}">My posts</a></div>
+        </div>
+    </div>
 {% endblock %}

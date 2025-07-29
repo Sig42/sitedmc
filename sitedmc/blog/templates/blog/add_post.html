@@ -6,21 +6,51 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ title }}</h1>
-<div class="form-container">
-    <form action="" method="POST">
-        {% csrf_token %}
-        {% for f in form %}
-        <div class="row">
-            <div class="col-25">
-                <label for="{{ f.id_for_label }}">{{ f.label }}</label>
+    <h1>{{ title }}</h1>
+    <div class="row">
+        <div class="side-column">
+            <div class="read_post_a">
+                <a href="{% url 'blog:authors' %}">Authors</a>
             </div>
-            <div class="col-65">
-                {{ f }}
+            <div class="read_post_a">
+                <a href="{% url 'blog:tags' %}">Tags</a>
             </div>
         </div>
-        {% endfor %}
-    <input type="submit" value="Submit">
-    </form>
-</div>
+        <div class="central-column">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% for f in form %}
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="{{ f.id_for_label }}">{{ f.label }}</label>
+                        </div>
+                        <div class="col-65" style="text-align:left;">
+                            {{ f }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="side-column">
+            <div class="read_post_a"><a href="{% url 'blog:add_post' %}">Create post</a></div>
+            <div class="read_post_a"><a href="{% url 'blog:my_posts' %}">My posts</a></div>
+        </div>
+    </div>
+<!--<div class="form-container">-->
+<!--    <form action="" method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        {% for f in form %}-->
+<!--        <div class="row">-->
+<!--            <div class="col-25">-->
+<!--                <label for="{{ f.id_for_label }}">{{ f.label }}</label>-->
+<!--            </div>-->
+<!--            <div class="col-65">-->
+<!--                {{ f }}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--    <input type="submit" value="Submit">-->
+<!--    </form>-->
+<!--</div>-->
 {% endblock %}

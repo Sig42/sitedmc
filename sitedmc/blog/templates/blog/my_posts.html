@@ -5,6 +5,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
 
+{% block title %}
+{{ title|capfirst}}
+{% endblock %}
+
 {% block content %}
     <h1>My posts</h1>
     <div class="row">
@@ -24,6 +28,7 @@
                 <div class="read_post_a">
                     <a href="{{ post.get_absolute_url }}">Read</a>
                     <a href="{% url 'blog:update_post' post.pk %}">Edit</a>
+                    <a href="{% url 'blog:delete_post' post.pk %}">Delete</a>
                 </div>
 
                 {% if not forloop.last %}

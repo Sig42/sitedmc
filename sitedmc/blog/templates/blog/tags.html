@@ -24,7 +24,8 @@
             {% endfor %}
         </div>
         <div class="side-column">
-            <p>Filters</p>
+            <div class="read_post_a"><a href="{% url 'blog:add_post' %}">Create post</a></div>
+            <div class="read_post_a"><a href="{% url 'blog:my_posts' %}">My posts</a></div>
         </div>
     </div>
     {% if page_obj.has_other_pages %}

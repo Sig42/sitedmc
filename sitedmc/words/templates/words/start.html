@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link type="text/css" rel="stylesheet" href="{% static 'words/css/words.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'words/css/words.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -11,22 +11,7 @@ Words
 
 
 {% block content %}
-
-    <!--  Пока что список слов будет один. Потом посмотрим.
-    <h1>Выбери список для изучения.</h1>
-    <div class="dropdown">
-        <span>Choose list</span>
-        <div class="dropdown-content">
-            <p>{{ p1 }}</p>
-            <p>{{ p2 }}</p>
-            <p>{{ p3 }}</p>
-        </div>
-    </div>
-    <h2>Создай новый список.</h2>
-    <button type="button">Create list</button> -->
-
     <a href="{% url 'words:learn' %}">Learn words</a>
     <a href="{% url 'words:add_word' %}">Add words</a>
     <a href="{% url 'words:table' %}">Show words in the table</a>
-
 {% endblock %}
