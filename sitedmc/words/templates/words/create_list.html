@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'words/css/words.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <div class="row">
+        <div class="side-column">
+            <div class="read_post_a"><a href="{% url 'words:create_list' %}">Create list</a></div>
+            <div class="read_post_a"><a href="{% url 'words:show_list' %}">Show current list</a></div>
+            <div class="read_post_a"><a href="{% url 'words:my_lists' %}">My lists</a></div>
+        </div>
+        <div class="central-column">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% for f in form %}
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="{{ f.id_for_label }}">{{ f.label }}</label>
+                        </div>
+                        <div class="col-65" style="text-align:left;">
+                            {{ f }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <input style="margin-top:20px;" type="submit" value="Create">
+            </form>
+        </div>
+        <div class="side-column">
+            <div class="read_post_a"><a href="{% url 'words:learn_words' %}">Learn words</a></div>
+            <div class="read_post_a"><a href="{% url 'words:add_words' %}">Add words</a></div>
+        </div>
+    </div>
+{% endblock %}

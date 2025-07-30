@@ -4,9 +4,10 @@ from . import views
 app_name = 'words'
 
 urlpatterns = [
-    path('', views.start, name='start'),
-    path('table/', views.table, name='table'),
-    path('learn/', views.learn, name='learn'),
-    path('add-word/', views.add_word, name='add_word'),
-    path('<slug:word>/', views.word_by_slug, name='word_by_slug'),
+    path('', views.Start.as_view(), name='start'),
+    path('show_list/', views.ShowList.as_view(), name='show_list'),
+    path('create_list/', views.CreateList.as_view(), name='create_list'),
+    path('my_lists/', views.MyLists.as_view(), name='my_lists'),
+    path('add_words/', views.AddWords.as_view(), name='add_words'),
+    path('learn_words/', views.LearnWords.as_view(), name='learn_words'),
 ]

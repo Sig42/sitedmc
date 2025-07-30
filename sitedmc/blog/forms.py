@@ -6,10 +6,7 @@ class AddPostForm(forms.ModelForm):
 
     class Meta:
         model = Blog
-        fields = ('title', 'slug', 'content', 'is_published')
+        fields = ('title', 'content', 'is_published')
         widgets = {
             'content': forms.Textarea(attrs={'cols':50, 'rows': 5})
-        }
-        labels = {
-            'slug': 'Unique URL for post'
         }

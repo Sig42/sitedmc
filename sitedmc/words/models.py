@@ -5,10 +5,10 @@ from django.utils.text import slugify
 
 class List(models.Model):
     name = models.CharField(max_length=255, verbose_name='Название')
-    amount = models.IntegerField(default=0,  verbose_name='Количество слов')
     create_time = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
-    creator = models.ForeignKey(get_user_model(), related_name='list', on_delete=models.CASCADE)
+    creator = models.ForeignKey(get_user_model(), related_name='list', on_delete=models.CASCADE, null=True,
+                                default=None, blank=True)
 
     def __str__(self):
         return self.name
@@ -18,7 +18,7 @@ class List(models.Model):
             s = slugify(self.name + '-' + self.creator.username)
             slug = s
             n = 1
-            while List.objects.filter(slug=s).exists():
+            while List.objects.filter(slug=slug).exists():
                 slug = f'{s}-{n}'
                 n += 1
             self.slug = slug
@@ -32,7 +32,7 @@ class Word(models.Model):
     create_time = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     update_time = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
-    list = models.ForeignKey(List, related_name='word', on_delete=models.CASCADE)
+    list = models.ForeignKey(List, related_name='word', on_delete=models.CASCADE, blank=True, null=True, default=None)
 
     def __str__(self):
         return self.name
