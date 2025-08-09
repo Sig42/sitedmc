@@ -11,28 +11,28 @@
       {{ title }}
       {% endblock %}
     </title>
-    <link type="text/css" rel="stylesheet" href="{% static 'words/css/style.css' %}">
-    <link rel="icon" type="image/x-icon" href="{% static 'words/images/favicon.ico' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'users/css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'users/images/favicon.ico' %}">
 </head>
 
 <body>
     <ul class="menu_ul">
         {% if current_app == 'Home' %}
         <li class="menu_li"><a class="active" href="{% url 'users:home' %}">Home</a></li>
-        <li class="menu_li"><a href="{% url 'words:start' %}">Words</a></li>
         <li class="menu_li"><a href="{% url 'blog:start' %}">Blog</a></li>
+        <li class="menu_li"><a href="{% url 'dictionary:start' %}">Dictionary</a></li>
         {% elif current_app == 'Blog' %}
         <li class="menu_li"><a href="{% url 'users:home' %}">Home</a></li>
-        <li class="menu_li"><a href="{% url 'words:start' %}">Words</a></li>
         <li class="menu_li"><a class="active" href="{% url 'blog:start' %}">Blog</a></li>
-        {% elif current_app == 'Words' %}
+        <li class="menu_li"><a href="{% url 'dictionary:start' %}">Dictionary</a></li>
+        {% elif current_app == 'dictionary' %}
         <li class="menu_li"><a href="{% url 'users:home' %}">Home</a></li>
-        <li class="menu_li"><a class="active" href="{% url 'words:start' %}">Words</a></li>
         <li class="menu_li"><a href="{% url 'blog:start' %}">Blog</a></li>
+        <li class="menu_li"><a class="active" href="{% url 'dictionary:start' %}">Dictionary</a></li>
         {% else %}
         <li class="menu_li"><a href="{% url 'users:home' %}">Home</a></li>
-        <li class="menu_li"><a href="{% url 'words:start' %}">Words</a></li>
         <li class="menu_li"><a href="{% url 'blog:start' %}">Blog</a></li>
+        <li class="menu_li"><a href="{% url 'dictionary:start' %}">Dictionary</a></li>
         {% endif %}
 
         {% if user.is_authenticated %}

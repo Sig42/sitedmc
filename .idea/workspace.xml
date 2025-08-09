@@ -4,20 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="finish blog app;&#10;words app: made slugs unique;">
-      <change afterPath="$PROJECT_DIR$/sitedmc/words/migrations/0005_remove_list_amount_alter_list_creator_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/words/templates/words/create_list.html" afterDir="false" />
+    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="created templates for words;&#10;started to create view for create_list;">
+      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/images/blue_wall.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/add_words.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/learn_words.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/show_words.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/start.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/my_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/my_posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/words/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/words/static/words/css/words.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/static/words/css/words.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/words/templates/words/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/templates/words/start.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/words/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/words/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/words/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/sitedmc/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/sitedmc/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/sitedmc/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/sitedmc/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/js/learn_words.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/migrations/0002_list_slug_word_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/migrations/0003_alter_word_options_alter_list_creator_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/migrations/0004_alter_list_slug_alter_word_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/migrations/0005_remove_list_amount_alter_list_creator_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/static/words/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/static/users/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/static/words/css/words.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/css/dictionary.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/static/words/images/big_ben.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/static/words/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/static/users/images/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/static/words/js/some_script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/templates/words/add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/templates/words/create_list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/templates/words/learn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/templates/words/start.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/templates/words/table.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/words/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,27 +67,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.run_server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dmitry/PycharmProjects/ed_project/sitedmc/users/static/images&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.run_server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/dmitry/PycharmProjects/ed_project/sitedmc/dictionary/static/dictionary/images",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/sitedmc/users/static/images" />
-      <recent name="$PROJECT_DIR$/sitedmc/words/static/words/images" />
-      <recent name="$PROJECT_DIR$/sitedmc/blog/static/blog/images" />
+      <recent name="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/images" />
+      <recent name="$PROJECT_DIR$/sitedmc/dictionary/static/css" />
+      <recent name="$PROJECT_DIR$/sitedmc/dictionary/static/images" />
+      <recent name="$PROJECT_DIR$/sitedmc/words/static/images" />
+      <recent name="$PROJECT_DIR$/sitedmc/words/static/css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary" />
       <recent name="$PROJECT_DIR$/sitedmc/users/static/users" />
       <recent name="$PROJECT_DIR$/sitedmc/users/templates/users" />
       <recent name="$PROJECT_DIR$/sitedmc/blog/templates/blog" />
@@ -217,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753759756356</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="created templates for words;&#10;started to create view for create_list;">
+      <option name="closed" value="true" />
+      <created>1753849024056</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1753849024056</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -234,7 +266,8 @@
     <MESSAGE value="Adding AuthorListView.." />
     <MESSAGE value="created: my_posts view, tags view;" />
     <MESSAGE value="finish blog app;&#10;words app: made slugs unique;" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish blog app;&#10;words app: made slugs unique;" />
+    <MESSAGE value="created templates for words;&#10;started to create view for create_list;" />
+    <option name="LAST_COMMIT_MESSAGE" value="created templates for words;&#10;started to create view for create_list;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

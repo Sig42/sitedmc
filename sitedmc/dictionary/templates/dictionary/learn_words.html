@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'dictionary/css/dictionary.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Here is page to learn words.</h1>
+    <h2 id="word" style="display:none;">{{ words.title }}</h2>
+    <h2>{{ words.translation }}</h2>
+    <p class="next-word">Test</p>
+    <button id="check" onclick=check()>Check</button>
+    <button id="tip" onclick=tip()>Tip</button>
+    <input type="text" id="answer" style="width:80%;">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input id="next" type="submit" value="Next">
+    </form>
+    <script>
+        let word_title = document.getElementById('word').innerText;
+
+        document.getElementById('answer').onkeypress = function(e) {
+        if (e.keyCode === 13) {
+            document.getElementById('check').click();
+            }
+        }
+
+        function check() {
+        let ans = document.getElementById('answer').value
+        let word_level = parseInt(document.getElementById('id_level').value)
+
+        if (ans == word_title) {
+          document.getElementById('answer').style.backgroundColor = 'rgba(204, 255, 230, 0.7)';
+          document.getElementById('id_level').value = 1 + word_level;
+          setTimeout(function() {
+            document.getElementById('next').click();
+            }, 2000);
+          document.getElementById('next').classList.add('get-green')
+        } else {
+          document.getElementById('answer').style.backgroundColor = 'rgba(255, 179, 179, 0.7)';
+        }}
+
+        function tip() {
+        document.getElementById('id_level').value = -1;
+        window.alert("Правильный ответ -> " + word_title);
+        }
+    </script>
+{% endblock %}

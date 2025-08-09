@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'dictionary/css/dictionary.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Here is dictionary app.</h1>
+    <div class="read_post_a">
+        <a href="{% url 'dictionary:learn_words' first_word.pk %}">Learn</a>
+        <a href="{% url 'dictionary:add_words' %}">Add</a>
+        <a href="{% url 'dictionary:show_words' %}">My words</a>
+    </div>
+{% endblock %}
