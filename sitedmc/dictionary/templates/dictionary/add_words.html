@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="dictionary/css/dictionary.css">
+<link rel="stylesheet" type="text/css" href="{% static 'dictionary/css/dictionary.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -22,4 +22,11 @@
       <input type="submit" value="Submit">
     </form>
   </div>
+<div class="background-img-mark">
+    Photo by
+    <a href="https://unsplash.com/@impatrickt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+        Patrick Tomasso</a> on
+    <a href="https://unsplash.com/photos/open-book-lot-Oaqk7qqNh_c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+    Unsplash</a>
+</div>
 {% endblock %}

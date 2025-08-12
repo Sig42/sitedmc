@@ -1,5 +1,5 @@
 body {
-    background-image: url('../images/blue_wall.jpg');
+    background-image: url('../images/books.jpg');
     background-size: 100%;
     }
 
@@ -13,16 +13,17 @@ h2, h3 {
     margin-top: 20px;
 }
 
-.central_message_box {
+.central-message-box {
   max-width: 800px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   padding: 15px;
-  background-color: rgba(255, 255, 255, 0.7);/*rgba(96, 0, 128,  0.7);*/
+  background-color: rgba(255, 255, 255, 0.8);/*rgba(96, 0, 128,  0.7);*/
   border-radius: 30px;
   text-align: center;
   overflow: hidden;
+  line-height: 1.8;
 }
 
 ul {
@@ -145,4 +146,21 @@ input[type=submit] {
 @keyframes next {
     from {background-color: white;}
     to {background-color: green;}
+}
+
+.words-table {
+    width: 80%;
+    margin: 80px auto;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 10px;
+}
+
+th {
+    height: 70px;
+}
+
+tr:hover {
+    background-color: rgba(255, 127, 80, 0.7);
 }

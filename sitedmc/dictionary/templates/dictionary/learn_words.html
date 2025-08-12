@@ -6,18 +6,25 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Here is page to learn words.</h1>
-    <h2 id="word" style="display:none;">{{ words.title }}</h2>
-    <h2>{{ words.translation }}</h2>
-    <p class="next-word">Test</p>
-    <button id="check" onclick=check()>Check</button>
-    <button id="tip" onclick=tip()>Tip</button>
-    <input type="text" id="answer" style="width:80%;">
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <input id="next" type="submit" value="Next">
-    </form>
+    <div class="central-message-box">
+        <p id="word" style="display:none;">{{ words.title }}</p>
+        <h1>{{ words.translation }}</h1>
+        <input type="text" id="answer" style="width:80%; display:block; margin: 30px auto;">
+        <button style="margin:5px 10px;" id="check" onclick=check()>Check</button>
+        <button style="margin:5px 10px;" id="tip" onclick=tip()>Tip</button>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div style="display:none;">{{ form }}</div>
+            <input disabled id="next" type="submit" value="Next" style="margin-top: 5px;">
+        </form>
+    </div>
+    <div class="background-img-mark">
+    Photo by
+    <a href="https://unsplash.com/@impatrickt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+        Patrick Tomasso</a> on
+    <a href="https://unsplash.com/photos/open-book-lot-Oaqk7qqNh_c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+    Unsplash</a>
+</div>
     <script>
         let word_title = document.getElementById('word').innerText;
 
@@ -34,6 +41,7 @@
         if (ans == word_title) {
           document.getElementById('answer').style.backgroundColor = 'rgba(204, 255, 230, 0.7)';
           document.getElementById('id_level').value = 1 + word_level;
+          document.getElementById('next').disabled = false;
           setTimeout(function() {
             document.getElementById('next').click();
             }, 2000);

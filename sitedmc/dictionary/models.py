@@ -4,7 +4,7 @@ from django.utils.text import slugify
 
 
 class Words(models.Model):
-    title = models.CharField(max_length=100, verbose_name='Заголовок')
+    title = models.CharField(max_length=100, verbose_name='Слово')
     translation = models.CharField(max_length=255, verbose_name='Перевод')
     level = models.IntegerField(default=0, verbose_name='Уровень')
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)

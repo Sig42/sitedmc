@@ -5,16 +5,10 @@ from .models import Words
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView
 
 
-class Start(LoginRequiredMixin, TemplateView):
+class Start(TemplateView):
     template_name = 'dictionary/start.html'
     first_word = Words.objects.all()[0]
     extra_context = {'current_app': 'dictionary', 'title': 'Dictionary',  'first_word': first_word}
-
-
-# def learn_words(request):
-#     word = Words.objects.all()[0]
-#     data = {'current_app': 'dictionary', 'title': 'Dictionary',  'word': word}
-#     return render(request, 'dictionary/learn_words.html', context=data)
 
 
 class LearnWords(LoginRequiredMixin, UpdateView):
@@ -44,7 +38,7 @@ class AddWords(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ShowWords(ListView):
+class ShowWords(LoginRequiredMixin, UpdateView):
     template_name = 'dictionary/show_words.html'
     extra_context = {'current_app': 'dictionary', 'title': 'Viewing words'}
     context_object_name = 'words'

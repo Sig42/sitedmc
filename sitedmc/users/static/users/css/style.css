@@ -1,10 +1,31 @@
+h1, h2, h3 {
+ font-family: Georgia, serif;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    font-size: 18px;
+}
+
+button {
+    font-family: Verdana, sans-serif;
+    font-size: 18px;
+}
+
+input {
+    font-family: Verdana, sans-serif;
+    font-size: 18px;
+}
+
 .menu_ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: auto;
-    /*background-color: #333;*/
     background-color: rgb(255, 255, 255);
+    font-family: Lora, serif;
+    font-variant: small-caps;
+    font-size: 24px;
 }
 
 .menu_li{
@@ -20,37 +41,17 @@
 }
 
 .menu_li a:hover:not(.active){
-    /*background-color: #111;*/
     background-color: rgb(204, 255, 255);
 }
 
 .active{
-    /*background-color: #334d4d;*/
     background-color: rgb(204, 255, 255);
 }
-
-/*
-.dropdown{
-    position: relative;
-    display: inline-block;
+.background-img-mark{
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 7px;
+    padding: 3px;
 }
-
-.dropdown-content{
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 100%;
-    overflow: auto;
-    shadow-box: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content{
-display: block;
-}
-
-table{
-    border: 1px solid black;
-}
-*/
