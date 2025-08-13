@@ -4,39 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="blog is finished (almost);&#10;words works, but looks no good;">
-      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/images/books.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/images/pink.jpg" afterDir="false" />
+    <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="it seems done; added background img marks;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/add_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/add_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/archive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/authors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/delete_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/delete_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/my_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/my_posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_author.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_author.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_tag.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/posts_by_tag.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/show_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/start.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/blog/templates/blog/tags.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/blog/templates/blog/tags.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/css/dictionary.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/css/dictionary.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/add_words.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/add_words.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/js/learn_words.js" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/js/learn_words.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/learn_words.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/learn_words.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/show_words.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/show_words.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/start.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/static/users/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/static/users/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_complete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/registration_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/registration_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/sitedmc/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/sitedmc/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754740353229</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="it seems done; added background img marks;">
+      <option name="closed" value="true" />
+      <created>1754971941275</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1754971941275</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -274,7 +257,8 @@
     <MESSAGE value="finish blog app;&#10;words app: made slugs unique;" />
     <MESSAGE value="created templates for words;&#10;started to create view for create_list;" />
     <MESSAGE value="blog is finished (almost);&#10;words works, but looks no good;" />
-    <option name="LAST_COMMIT_MESSAGE" value="blog is finished (almost);&#10;words works, but looks no good;" />
+    <MESSAGE value="it seems done; added background img marks;" />
+    <option name="LAST_COMMIT_MESSAGE" value="it seems done; added background img marks;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

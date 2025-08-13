@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.http import HttpResponseNotFound
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy,  reverse
 from .models import Words
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView
@@ -20,8 +21,8 @@ class LearnWords(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         w = Words.objects.filter(person=self.request.user)[0]
-        return reverse_lazy(f'dictionary:learn_words', args=[w.pk])
-
+        return reverse_lazy('dictionary:learn_words', args=[w.pk])
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 class AddWords(LoginRequiredMixin, CreateView):
     template_name = 'dictionary/add_words.html'
@@ -30,7 +31,7 @@ class AddWords(LoginRequiredMixin, CreateView):
     fields = ['title', 'translation']
 
     def get_success_url(self):
-        return reverse_lazy('dictionary:show_words')
+        return reverse_lazy('dictionary:add_words')
 
     def form_valid(self, form):
         x = form.save(commit=False)
@@ -38,7 +39,7 @@ class AddWords(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ShowWords(LoginRequiredMixin, UpdateView):
+class ShowWords(LoginRequiredMixin, ListView):
     template_name = 'dictionary/show_words.html'
     extra_context = {'current_app': 'dictionary', 'title': 'Viewing words'}
     context_object_name = 'words'
