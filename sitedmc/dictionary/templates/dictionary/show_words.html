@@ -16,10 +16,10 @@
     {% for word in words %}
         <tr>
             <td>
-                {{ word.title }}
+                <a href="{% url 'dictionary:certain_word' word.slug %}">{{ word.title }}</a>
             </td>
             <td>
-                {{ word.translation }}
+                <a href="{% url 'dictionary:certain_word' word.slug %}">{{ word.translation }}</a>
             </td>
             <td>
                 {{ word.level }}
