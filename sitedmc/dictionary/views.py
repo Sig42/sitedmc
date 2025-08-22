@@ -1,5 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import redirect
+from django.template.context_processors import request
 from django.urls import reverse_lazy
 from .models import Words
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView
@@ -61,13 +63,32 @@ class AddWords(LoginRequiredMixin, CreateView):
 
 
 class ShowWords(LoginRequiredMixin, ListView):
+    model = Words
     template_name = 'dictionary/show_words.html'
     extra_context = {'current_app': 'dictionary', 'title': 'Viewing words'}
     context_object_name = 'words'
     paginate_by = 30
 
     def get_queryset(self):
-        return Words.objects.filter(person=self.request.user)
+        pers = self.request.user
+        qs = super().get_queryset().filter(person=pers)
+        title = self.request.GET.get('title')
+        translation = self.request.GET.get('translation')
+        level = self.request.GET.get('level')
+        if title:
+            qs = qs.filter(title__contains=title)
+        if translation:
+            qs = qs.filter(translation__contains=translation)
+        if level:
+            qs = qs.filter(level=level)
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.request.GET.get('title')
+        context['translation'] = self.request.GET.get('translation')
+        context['level'] = self.request.GET.get('level')
+        return context
 
 
 class UpdateWord(LoginRequiredMixin, UpdateView):

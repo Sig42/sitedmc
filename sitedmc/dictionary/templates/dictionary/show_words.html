@@ -6,6 +6,12 @@
 {% endblock%}
 
 {% block content %}
+    <form method="get">
+        <input type="text" name="title" placeholder="Search by word" value="{{ title }}">
+        <input type="text" name="translation" placeholder="Search by translation" value="{{ translation }}">
+        <input type="number" name="level" placeholder="Level" value="{{ level }}">
+        <button type="submit">Filter</button>
+    </form>
     <table class="words-table">
         <tr>
             <th>Word/Phrase</th>
@@ -30,6 +36,7 @@
         </tr>
     {% endfor %}
     </table>
+
 <div class="background-img-mark">
     Photo by
     <a href="https://unsplash.com/@impatrickt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
