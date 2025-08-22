@@ -1,9 +1,15 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseNotFound
-from django.shortcuts import render, get_object_or_404
-from django.urls import reverse_lazy,  reverse
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from .models import Words
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView
+
+
+def check_auth(request):
+    if request.user.is_authenticated:
+        return redirect('dictionary:start')
+    else:
+        return redirect('dictionary:start_not_auth')
 
 
 class Start(TemplateView):
@@ -15,6 +21,11 @@ class Start(TemplateView):
         word = Words.objects.filter(person=self.request.user)[0]
         context['word'] = word
         return context
+
+
+class StartNotAuth(TemplateView):
+    template_name = 'dictionary/start_not_auth.html'
+    extra_context = {'current_app': 'dictionary', 'title': 'Dictionary'}
 
 
 class ChooseWords(TemplateView):
@@ -53,14 +64,15 @@ class ShowWords(LoginRequiredMixin, ListView):
     template_name = 'dictionary/show_words.html'
     extra_context = {'current_app': 'dictionary', 'title': 'Viewing words'}
     context_object_name = 'words'
+    paginate_by = 30
 
     def get_queryset(self):
         return Words.objects.filter(person=self.request.user)
 
 
-class CertainWord(LoginRequiredMixin, UpdateView):
+class UpdateWord(LoginRequiredMixin, UpdateView):
     model = Words
-    template_name = 'dictionary/certain_word.html'
+    template_name = 'dictionary/update_word.html'
     extra_context = {'current_app': 'dictionary', 'title': 'Editing word'}
     context_object_name = 'word'
     fields = ['title', 'translation', 'level']

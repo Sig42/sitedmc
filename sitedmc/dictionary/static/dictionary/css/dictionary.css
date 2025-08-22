@@ -3,16 +3,6 @@ body {
     background-size: 100%;
     }
 
-h1 {
-    text-align: center;
-    margin-top:50px;
-}
-
-h2, h3 {
-    text-align: center;
-    margin-top: 20px;
-}
-
 .central-message-box {
   max-width: 800px;
   margin-top: 50px;
@@ -30,23 +20,6 @@ ul {
     list-style-type: none;
     text-align: center;
     padding-right: 40px;
-}
-
-div.inside li{
-    display: inline;
-}
-
-.page_selector_button {
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.actual {
-    font-weight: bold;
-    font-size: 25px;
 }
 
 .read_post_a{
@@ -87,13 +60,6 @@ input[type=submit] {
     cursor:pointer;
 }
 
-.form-container{
-    border-radius: 30px;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 20px;
-    margin: 10px 150px;
-}
-
 .col-25 {
     float: left;
     width: 15%;
@@ -117,24 +83,6 @@ input[type=submit] {
         width: 100%;
         margin-top: 0;
     }
-}
-
-.a_inline {
-    text-decoration: none;
-    padding: 8px;
-    border-radius: 8px;
-    color: black;
-}
-
-.a_inline:hover{
-    background-color: rgba(204, 255, 255, 0.9);
-}
-
-.left_align_in_central_box {
-    text-align: left;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .get-green {

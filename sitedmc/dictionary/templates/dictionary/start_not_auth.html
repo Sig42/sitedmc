@@ -15,9 +15,8 @@
     <p style="margin:20px 100px; text-align:justify; text-indent:50px;">У каждого пользователя свой список, поэтому, чтобы использовать это приложение, требуется
     регистрация.</p>
     <div class="read_post_a">
-        <a href="{% url 'dictionary:learn_words' word.pk %}">Learn</a>
-        <a href="{% url 'dictionary:add_words' %}">Add</a>
-        <a href="{% url 'dictionary:show_words' %}">My words</a>
+        <a href="{% url 'users:login' %}">Log in</a>
+        <a href="{% url 'users:registration' %}">Registration</a>
     </div>
 </div>
 <div class="background-img-mark">

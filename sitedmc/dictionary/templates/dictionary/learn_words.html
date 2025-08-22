@@ -9,7 +9,7 @@
     <div class="central-message-box">
         <p id="word" style="display:none;">{{ words.title }}</p>
         <h1>{{ words.translation }}</h1>
-        <input type="text" id="answer" style="width:80%; display:block; margin: 30px auto;">
+        <input type="text" id="answer" style="width:80%; display:block; margin: 30px auto;" autofocus>
         <button style="margin:5px 10px;" id="check" onclick=check()>Check</button>
         <button style="margin:5px 10px;" id="tip" onclick=tip()>Tip</button>
         <form action="" method="POST">
@@ -17,6 +17,12 @@
             <div style="display:none;">{{ form }}</div>
             <input disabled id="next" type="submit" value="Next" style="margin-top: 5px;">
         </form>
+    </div>
+    <div class="central-message-box">
+        <div class="read_post_a">
+            <a href="{% url 'dictionary:start' %}">Menu</a>
+            <a href="{% url 'dictionary:show_words' %}">My words</a>
+        </div>
     </div>
     <div class="background-img-mark">
     Photo by

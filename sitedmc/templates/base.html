@@ -20,19 +20,19 @@
         {% if current_app == 'Home' %}
         <li class="menu_li"><a class="active" href="{% url 'users:home' %}">Home</a></li>
         <li class="menu_li"><a href="{% url 'blog:start' %}">Blog</a></li>
-        <li class="menu_li"><a href="{% url 'dictionary:start' %}">Dictionary</a></li>
+        <li class="menu_li"><a href="{% url 'dictionary:check_auth' %}">Dictionary</a></li>
         {% elif current_app == 'Blog' %}
         <li class="menu_li"><a href="{% url 'users:home' %}">Home</a></li>
         <li class="menu_li"><a class="active" href="{% url 'blog:start' %}">Blog</a></li>
-        <li class="menu_li"><a href="{% url 'dictionary:start' %}">Dictionary</a></li>
+        <li class="menu_li"><a href="{% url 'dictionary:check_auth' %}">Dictionary</a></li>
         {% elif current_app == 'dictionary' %}
         <li class="menu_li"><a href="{% url 'users:home' %}">Home</a></li>
         <li class="menu_li"><a href="{% url 'blog:start' %}">Blog</a></li>
-        <li class="menu_li"><a class="active" href="{% url 'dictionary:start' %}">Dictionary</a></li>
+        <li class="menu_li"><a class="active" href="{% url 'dictionary:check_auth' %}">Dictionary</a></li>
         {% else %}
         <li class="menu_li"><a href="{% url 'users:home' %}">Home</a></li>
         <li class="menu_li"><a href="{% url 'blog:start' %}">Blog</a></li>
-        <li class="menu_li"><a href="{% url 'dictionary:start' %}">Dictionary</a></li>
+        <li class="menu_li"><a href="{% url 'dictionary:check_auth' %}">Dictionary</a></li>
         {% endif %}
 
         {% if user.is_authenticated %}
