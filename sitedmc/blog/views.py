@@ -84,7 +84,7 @@ class DeletePost(DeleteView):
     model = Blog
     success_url = reverse_lazy('blog:start')
     template_name = 'blog/delete_post.html'
-    extra_context = {'current_app': 'Blog'}
+    extra_context = {'title': 'Deleting post', 'current_app': 'Blog'}
 
     def get_object(self, **kwargs):
         ob = super().get_object(**kwargs)
@@ -155,11 +155,3 @@ class PostsByTag(ListView):
         t_name = self.kwargs['tag_slug'].capitalize()
         context['title'] = f'Posts by tag {t_name}'
         return context
-
-
-# def get_some(request, pk): It's a draft for restricting by authorship.
-#     user_name = request.user.username
-#     post = Blog.objects.get(pk=pk)
-#     if post.author.username == user_name:
-#         return HttpResponse("You got it!")
-#     return HttpResponse('You are not allowed!')

@@ -7,27 +7,17 @@
 
 {% block content %}
 <div class="central-message-box">
-{% if messages %}
-  <ul>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-  </ul>
-{% endif %}
-<form action="" method="POST">
-  {% csrf_token %}
-  {% for f in form %}
-      <div class="row">
-          <div class="col-25">
-              <label for="{{ f.id_for_label }}">{{ f.label }}</label>
-          </div>
-          <div class="col-65" style="text-align:left;">
-              {{ f }}
-          </div>
-      </div>
-  {% endfor %}
-  <input type="submit" value="Submit">
-</form>
+    <h2>Вы уверены, что хотите удалить слово "{{ object.title }}" из словаря?</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div style="text-align:center;">
+            <button style="cursor:pointer;" type="submit">Submit</button>
+            <button>
+                <a style="text-decoration:none;color:black;" href="{% url 'dictionary:start' %}">Cancel</a>
+            </button>
+        </div>
+    </form>
 </div>
 <div class="background-img-mark">
     Photo by

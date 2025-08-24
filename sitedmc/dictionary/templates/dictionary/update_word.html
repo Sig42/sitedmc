@@ -20,7 +20,7 @@
         </div>
         {% endfor %}
         <input type="submit" value="Edit">
-        <button>Delete</button>
+        <button><a href="{% url 'dictionary:delete_word' word.pk %}">Delete</a></button>
     </form>
 </div>
 {% endblock %}

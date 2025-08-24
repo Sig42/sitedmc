@@ -1,10 +1,10 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Q
 from django.shortcuts import redirect
-from django.template.context_processors import request
 from django.urls import reverse_lazy
 from .models import Words
-from django.views.generic import TemplateView, ListView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
+from django.core.exceptions import PermissionDenied
 
 
 def check_auth(request):
@@ -57,9 +57,16 @@ class AddWords(LoginRequiredMixin, CreateView):
         return reverse_lazy('dictionary:add_words')
 
     def form_valid(self, form):
-        x = form.save(commit=False)
-        x.person = self.request.user
-        return super().form_valid(form)
+        u = self.request.user
+        title = form.cleaned_data['title']
+        if Words.objects.filter(title=title, person=u).exists():
+            messages.error(self.request, 'У Вас уже есть такое слово в словаре!')
+            return super().form_invalid(form)
+        else:
+            x = form.save(commit=False)
+            x.person = u
+            messages.success(self.request, 'Слово успешно добавлено в словарь!')
+            return super().form_valid(form)
 
 
 class ShowWords(LoginRequiredMixin, ListView):
@@ -98,5 +105,26 @@ class UpdateWord(LoginRequiredMixin, UpdateView):
     context_object_name = 'word'
     fields = ['title', 'translation', 'level']
 
+    def get_object(self, **kwargs):
+        ob = super().get_object(**kwargs)
+        if ob.person == self.request.user:
+            return ob
+        else:
+            raise PermissionDenied
+
     def get_success_url(self):
         return reverse_lazy('dictionary:show_words')
+
+
+class DeleteWord(DeleteView):
+    model = Words
+    success_url = reverse_lazy('dictionary:start')
+    template_name = 'dictionary/delete_word.html'
+    extra_context = {'current_app': 'dictionary', 'title': 'Deleting word'}
+
+    def get_object(self, **kwargs):
+        ob = super().get_object(**kwargs)
+        if ob.person == self.request.user:
+            return ob
+        else:
+            raise PermissionDenied
