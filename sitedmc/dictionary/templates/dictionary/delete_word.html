@@ -6,17 +6,13 @@
 {% endblock %}
 
 {% block content %}
-<div class="central-message-box">
+<div class="central-container">
     <h2>Вы уверены, что хотите удалить слово "{{ object.title }}" из словаря?</h2>
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <div style="text-align:center;">
-            <button style="cursor:pointer;" type="submit">Submit</button>
-            <button>
-                <a style="text-decoration:none;color:black;" href="{% url 'dictionary:start' %}">Cancel</a>
-            </button>
-        </div>
+        <button class="button_m" type="submit">Delete</button>
+        <button class="button_m"><a href="{% url 'dictionary:start' %}">Cancel</a></button>
     </form>
 </div>
 <div class="background-img-mark">

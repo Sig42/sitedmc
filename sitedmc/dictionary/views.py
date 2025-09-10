@@ -1,11 +1,12 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
+from .forms import UploadFileForm
 from .models import Words
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
 from django.core.exceptions import PermissionDenied
-
+import json
 
 def check_auth(request):
     if request.user.is_authenticated:
@@ -20,19 +21,13 @@ class Start(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        word = Words.objects.filter(person=self.request.user)[0]
-        context['word'] = word
+        context['is_list'] = Words.objects.filter(person=self.request.user).exists()
         return context
 
 
 class StartNotAuth(TemplateView):
     template_name = 'dictionary/start_not_auth.html'
     extra_context = {'current_app': 'dictionary', 'title': 'Dictionary'}
-
-
-class ChooseWords(TemplateView):
-    template_name = 'dictionary/choose_words.html'
-    extra_context = {'current_app': 'dictionary', 'title': 'Choose words'}
 
 
 class LearnWords(LoginRequiredMixin, UpdateView):
@@ -74,7 +69,6 @@ class ShowWords(LoginRequiredMixin, ListView):
     template_name = 'dictionary/show_words.html'
     extra_context = {'current_app': 'dictionary', 'title': 'Viewing words'}
     context_object_name = 'words'
-    paginate_by = 30
 
     def get_queryset(self):
         pers = self.request.user
@@ -92,9 +86,10 @@ class ShowWords(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = self.request.GET.get('title')
-        context['translation'] = self.request.GET.get('translation')
-        context['level'] = self.request.GET.get('level')
+        # context['title'] = self.request.GET.get('title')
+        # context['translation'] = self.request.GET.get('translation')
+        # context['level'] = self.request.GET.get('level')
+        context['count'] = self.get_queryset().count()
         return context
 
 
@@ -128,3 +123,51 @@ class DeleteWord(DeleteView):
             return ob
         else:
             raise PermissionDenied
+
+
+def pre_learn(request):
+    context = {'current_app': 'dictionary', 'title': "Choosing words to study"}
+    return render(request, 'dictionary/pre_learn.html', context=context)
+
+
+def learn_list(request):
+    lvl = request.GET.get('level')
+    qnt = request.GET.get('quantity')
+    pers = request.user
+    if request.method == 'POST':
+        json_form = request.POST['only_field']
+        words = json.loads(json_form)
+        for word in words:
+            w = Words.objects.get(pk=word['pk'])
+            w.level = word['level']
+            w.save()
+        return redirect('dictionary:start')
+    else:
+        if not qnt:
+            qnt = 5
+        else:
+            qnt = int(qnt)
+        if not lvl:
+            ws = Words.objects.filter(person=pers)[:qnt]
+        else:
+            ws = Words.objects.filter(level=int(lvl), person=pers)[:qnt]
+        data = []
+        for w in ws:
+            data.append({'pk':w.pk, 'title': w.title, 'translation': w.translation, 'level': w.level})
+        data = data[::-1]
+        json_data = json.dumps(data)
+        form = UploadFileForm()
+    return render(request, 'dictionary/learn_list.html',
+                 {'words': json_data,
+                         'form': form,
+                         'title': 'Learning words',
+                         'current_app': 'dictionary'})
+
+
+# def study(request):
+#     qnt = int(request.GET.get('quantity'))
+#     lvl = int(request.GET.get('level'))
+#     u = request.user
+#     qs = Words.objects.filter(person=u, level=lvl)[:qnt]
+#     context = {'current_app': 'dictionary', 'title': "Study words", 'words': qs}
+#     return render(request, 'dictionary/learn_list.html', context=context)

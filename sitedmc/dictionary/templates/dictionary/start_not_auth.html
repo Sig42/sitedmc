@@ -6,18 +6,18 @@
 {% endblock %}
 
 {% block content %}
-<div class="central-message-box">
-    <p style="margin:20px 100px; text-align:justify; text-indent:50px;">В этом приложении Вы можете добавлять свои слова (фразы) и переводы к ним.
+<div class="central-container">
+    <h1>Требуется регистрация</h1>
+    <p>В этом приложении Вы можете добавлять свои слова (фразы) и переводы к ним.
     У каждого слова (фразы) есть свой счетчик (уровень), к которому прибавляется 1, если Вы правильно ввели перевод
     для него. Если Вы нажали кнопку Tip, то счетчик обнуляется.</p>
-    <p style="margin:20px 100px; text-align:justify; text-indent:50px;">При этом слова для изучения подаются в отсортированном виде, начиная со слов с наименьшим счетчиком.
+    <p>При этом слова для изучения подаются в отсортированном виде, начиная со слов с наименьшим счетчиком.
     Таким образом, слова, которые Вы хорошо запомнили, будут в конце списка.</p>
-    <p style="margin:20px 100px; text-align:justify; text-indent:50px;">У каждого пользователя свой список, поэтому, чтобы использовать это приложение, требуется
-    регистрация.</p>
-    <div class="read_post_a">
-        <a href="{% url 'users:login' %}">Log in</a>
-        <a href="{% url 'users:registration' %}">Registration</a>
-    </div>
+    <p><b>У каждого пользователя свой список, поэтому, чтобы использовать это приложение, требуется
+    регистрация.</b></p>
+    <hr>
+    <a class="button_m" href="{% url 'users:login' %}">Log in</a>
+    <a class="button_m" href="{% url 'users:registration' %}">Registration</a>
 </div>
 <div class="background-img-mark">
     Photo by

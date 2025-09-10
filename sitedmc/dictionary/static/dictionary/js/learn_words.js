@@ -7,18 +7,18 @@ if (e.keyCode === 13) {
 }
 
 function check() {
-let ans = document.getElementById('answer').value
-let word_level = parseInt(document.getElementById('id_level').value)
+    let ans = document.getElementById('answer').value
+    let word_level = parseInt(document.getElementById('id_level').value)
 
-if (ans == word_title) {
-  document.getElementById('answer').style.backgroundColor = 'rgba(204, 255, 230, 0.7)';
-  document.getElementById('id_level').value = 1 + word_level;
-  document.getElementById('next').disabled = false;
-  setTimeout(function() {
-    document.getElementById('next').click();
-    }, 2000);
-  document.getElementById('next').classList.add('get-green')
-} else {
+    if (ans == word_title) {
+      document.getElementById('answer').style.backgroundColor = 'rgba(204, 255, 230, 0.7)';
+      document.getElementById('id_level').value = 1 + word_level;
+      document.getElementById('next').disabled = false;
+      setTimeout(function() {
+        document.getElementById('next').click();
+        }, 2000);
+      document.getElementById('next').classList.add('get-green')
+    } else {
   document.getElementById('answer').style.backgroundColor = 'rgba(255, 179, 179, 0.7)';
 }}
 

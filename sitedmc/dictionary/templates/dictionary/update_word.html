@@ -6,7 +6,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="central-message-box">
+<div class="central-container">
+    <h1>Редактирование</h1>
     <form method="POST">
         {% csrf_token %}
         {% for f in form %}
@@ -19,8 +20,9 @@
             </div>
         </div>
         {% endfor %}
-        <input type="submit" value="Edit">
-        <button><a href="{% url 'dictionary:delete_word' word.pk %}">Delete</a></button>
+        <input class="button_m" type="submit" value="Edit">
     </form>
+    <hr>
+    <a class="button_m" href="{% url 'dictionary:delete_word' word.pk %}">Delete</a>
 </div>
 {% endblock %}

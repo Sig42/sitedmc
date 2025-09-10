@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'dictionary/css/dictionary.css' %}">
+{% endblock%}
+
+{% block content %}
+<div class="central-container">
+    <h1>Выберите уровень и количество слов</h1>
+    <form action="{% url 'dictionary:learn_list' %}" method="get">
+        <input type="number" name="level" placeholder="Level">
+        <input type="number" name="quantity" placeholder="Quantity">
+        <hr>
+        <button class="button_m" type="submit">Filter</button>
+        <button class="button_m"><a href="{% url 'dictionary:start' %}">Back</a></button>
+    </form>
+</div>
+{% endblock %}

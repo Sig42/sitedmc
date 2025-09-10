@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="central-message-box">
+<div class="central-container">
 {% if messages %}
   <ul>
       {% for message in messages %}
@@ -16,17 +16,19 @@
 {% endif %}
 <form action="" method="POST">
   {% csrf_token %}
+  <h1>Добавление слова</h1>
   {% for f in form %}
       <div class="row">
           <div class="col-25">
               <label for="{{ f.id_for_label }}">{{ f.label }}</label>
           </div>
-          <div class="col-65" style="text-align:left;">
+          <div class="col-65">
               {{ f }}
           </div>
       </div>
   {% endfor %}
-  <input type="submit" value="Submit">
+  <hr>
+  <input class="button_m" type="submit" value="Submit">
 </form>
 </div>
 <div class="background-img-mark">

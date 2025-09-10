@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'dictionary/css/dictionary.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="central-container" id="cmb" style="display:block;">
+    <p id="words" style="display:none;">{{ words }}</p>
+    <p id="title" style="display:none;"></p>
+    <h1 id="translation"></h1>
+    <input type="text" id="answer" style="width:80%; display:block; margin:30px auto;" autofocus>
+    <button class="button_m" id="check" onclick=check()>Check</button>
+    <button class="button_m" id="tip" onclick=tip()>Tip</button>
+    <button class="button_m" id="next" onclick=next() disabled>Next</button>
+    <div id="congrats" style="display:none;">
+        <h1>
+            Вы прошли весь список!
+        </h1>
+    </div>
+    <form method='post'>
+        {% csrf_token %}
+        <p style="display:none">{{ form.only_field }}</p>
+        <input class="button_m" type="submit" id="submit" style="display:none" value="Сохранить результат">
+    </form>
+</div>
+<div class="background-img-mark">
+    Photo by
+    <a href="https://unsplash.com/@impatrickt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+        Patrick Tomasso</a> on
+    <a href="https://unsplash.com/photos/open-book-lot-Oaqk7qqNh_c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+    Unsplash</a>
+</div>
+
+<script>
+    document.getElementById('answer').onkeypress = function(e) {
+      if (e.keyCode === 13) {
+      document.getElementById('check').click();
+      }
+    }
+    let some_val = JSON.parse(document.getElementById('words').innerText);
+    let n = some_val.length - 1;
+    let current_word = some_val[n];
+
+
+    document.getElementById('translation').innerText = current_word.translation;
+    document.getElementById('title').innerText = current_word.title;
+    document.getElementById('count').innerText = n;
+
+
+    function check() {
+      let ans = document.getElementById('answer').value
+      if (ans == current_word.title) {
+        document.getElementById('answer').style.backgroundColor = 'rgba(204, 255, 230, 0.7)';
+        document.getElementById('check').disabled = true;
+        document.getElementById('next').disabled = false;
+        current_word.level += 1;
+        n -= 1;
+        setTimeout(function() {
+        document.getElementById('next').click();
+        }, 2000);
+        } else {
+        document.getElementById('answer').style.backgroundColor = 'rgba(255, 179, 179, 0.7)';
+      }
+      if (n < 0) {
+        document.getElementById('check').disabled = true;
+        document.getElementById('tip').disabled = true;
+        document.getElementById('next').disabled = true;
+        document.getElementById('congrats').style.display = 'block';
+        document.getElementById('submit').style.display = 'block';
+        document.getElementById('id_only_field').value = JSON.stringify(some_val);
+      } else {
+        current_word = some_val[n];
+      }
+    }
+
+    function next() {
+        document.getElementById('translation').innerText = current_word.translation;
+        document.getElementById('title').innerText = current_word.title;
+        document.getElementById('answer').value = '';
+        document.getElementById('answer').style.backgroundColor = 'white';
+        document.getElementById('check').disabled = false;
+        document.getElementById('next').disabled = true;
+    }
+
+    function tip() {
+      current_word.level = -1;
+      window.alert("Правильный ответ -> " + current_word.title);
+    }
+
+</script>
+
+{% endblock %}

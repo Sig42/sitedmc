@@ -6,13 +6,10 @@
 {% endblock%}
 
 {% block content %}
-    <form method="get">
-        <input type="text" name="title" placeholder="Search by word">
-        <input type="text" name="translation" placeholder="Search by translation">
-        <input type="number" name="level" placeholder="Level">
-        <button type="submit">Filter</button>
-    </form>
-    <table class="words-table">
+<div class="central-container">
+<h2>Количество выбранных слов - {{ count }}</h2>
+<div class="table-container">
+    <table>
         <tr>
             <th>Word/Phrase</th>
             <th>Translation</th>
@@ -36,7 +33,14 @@
         </tr>
     {% endfor %}
     </table>
-
+</div>
+<form style="width:80%;margin:0 auto;" method="get">
+    <input type="text" name="title" placeholder="Search by word (part of word)">
+    <input type="text" name="translation" placeholder="Search by translation (part of translation)">
+    <input type="number" name="level" placeholder="Level">
+    <input class="button_m" type="submit" value="Filter">
+</form>
+</div>
 <div class="background-img-mark">
     Photo by
     <a href="https://unsplash.com/@impatrickt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
