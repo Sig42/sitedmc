@@ -7,10 +7,11 @@
 
 {% block content %}
 
-<div class="central-container" id="cmb" style="display:block;">
+<div class="central-container">
     <p id="words" style="display:none;">{{ words }}</p>
     <p id="title" style="display:none;"></p>
-    <h1 id="translation"></h1>
+    <h3 style="margin-bottom:0;" id="words_count"></h3>
+    <h1 style="margin-top:0;" id="translation"></h1>
     <input type="text" id="answer" style="width:80%; display:block; margin:30px auto;" autofocus>
     <button class="button_m" id="check" onclick=check()>Check</button>
     <button class="button_m" id="tip" onclick=tip()>Tip</button>
@@ -43,12 +44,14 @@
     let some_val = JSON.parse(document.getElementById('words').innerText);
     let n = some_val.length - 1;
     let current_word = some_val[n];
+    let cur_word_cnt = 1;
+    const urlParams = new URLSearchParams(window.location.search);
+    const qnt = urlParams.get('quantity');
 
 
     document.getElementById('translation').innerText = current_word.translation;
     document.getElementById('title').innerText = current_word.title;
-    document.getElementById('count').innerText = n;
-
+    document.getElementById('words_count').innerText = cur_word_cnt + " из " + qnt;
 
     function check() {
       let ans = document.getElementById('answer').value
@@ -58,6 +61,7 @@
         document.getElementById('next').disabled = false;
         current_word.level += 1;
         n -= 1;
+        cur_word_cnt += 1;
         setTimeout(function() {
         document.getElementById('next').click();
         }, 2000);
@@ -79,6 +83,7 @@
     function next() {
         document.getElementById('translation').innerText = current_word.translation;
         document.getElementById('title').innerText = current_word.title;
+        document.getElementById('words_count').innerText = cur_word_cnt + " из " + qnt;;
         document.getElementById('answer').value = '';
         document.getElementById('answer').style.backgroundColor = 'white';
         document.getElementById('check').disabled = false;
@@ -89,7 +94,6 @@
       current_word.level = -1;
       window.alert("Правильный ответ -> " + current_word.title);
     }
-
 </script>
 
 {% endblock %}

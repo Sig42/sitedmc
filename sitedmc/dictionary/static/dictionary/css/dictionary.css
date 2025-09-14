@@ -18,7 +18,7 @@ body {
 
 p {
   margin: 20px 100px;
-  text-align: left;
+  text-align: justify;
   text-indent: 50px;
 }
 
@@ -41,6 +41,12 @@ ul {
 
 form {
     opacity: 0.9;
+}
+
+.pre-learn-form {
+    display:block;
+    text-align:left;
+    margin-left: 250px;
 }
 
 .button_m {
@@ -101,7 +107,7 @@ input[type=submit] {
 }
 
 @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit]{
+    .col-25, .col-65, input[type=submit]{
         width: 100%;
         margin-top: 0;
     }

@@ -5,24 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="it seems done; added background img marks;">
-      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/js/learn_list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/learn_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/pre_learn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/css/dictionary.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/css/dictionary.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/js/learn_words.js" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/js/learn_words.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/add_words.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/add_words.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/choose_words.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/delete_word.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/delete_word.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/show_words.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/show_words.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/learn_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/learn_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/pre_learn.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/pre_learn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/start.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/start_not_auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/start_not_auth.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/update_word.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/update_word.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/static/users/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/static/users/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>

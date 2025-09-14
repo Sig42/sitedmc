@@ -9,11 +9,26 @@
 <div class="central-container">
     <h1>Выберите уровень и количество слов</h1>
     <form action="{% url 'dictionary:learn_list' %}" method="get">
-        <input type="number" name="level" placeholder="Level">
-        <input type="number" name="quantity" placeholder="Quantity">
+        <div class="pre-learn-form">
+            <label style="width:120px;" for="id_level">Уровень</label>
+            <select style="font-size:19px; width:90px;" id="id_level" name="level">
+            {% for c in choices %}
+            <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="pre-learn-form">
+            <label style="width:120px;" for="id_qnt">Количество</label>
+            <input style="font-size:19px; width:90px;" id="id_qnt" type="number" name="quantity">
+        </div>
         <hr>
         <button class="button_m" type="submit">Filter</button>
         <button class="button_m"><a href="{% url 'dictionary:start' %}">Back</a></button>
     </form>
 </div>
+<script>
+    document.getElementById('id_level').value = 'All';
+    document.getElementById('id_qnt').value = 10;
+</script>
+
 {% endblock %}

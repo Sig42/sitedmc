@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from .forms import UploadFileForm
 from .models import Words
-from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView, FormView
 from django.core.exceptions import PermissionDenied
 import json
 
@@ -126,13 +126,15 @@ class DeleteWord(DeleteView):
 
 
 def pre_learn(request):
-    context = {'current_app': 'dictionary', 'title': "Choosing words to study"}
+    choices = list(Words.objects.values_list('level', flat=True).distinct())
+    choices.append('All')
+    context = {'current_app': 'dictionary', 'title': "Choosing words to study", 'choices': choices}
     return render(request, 'dictionary/pre_learn.html', context=context)
 
 
 def learn_list(request):
     lvl = request.GET.get('level')
-    qnt = request.GET.get('quantity')
+    qnt = int(request.GET.get('quantity'))
     pers = request.user
     if request.method == 'POST':
         json_form = request.POST['only_field']
@@ -143,11 +145,7 @@ def learn_list(request):
             w.save()
         return redirect('dictionary:start')
     else:
-        if not qnt:
-            qnt = 5
-        else:
-            qnt = int(qnt)
-        if not lvl:
+        if lvl == 'All':
             ws = Words.objects.filter(person=pers)[:qnt]
         else:
             ws = Words.objects.filter(level=int(lvl), person=pers)[:qnt]
@@ -163,6 +161,39 @@ def learn_list(request):
                          'title': 'Learning words',
                          'current_app': 'dictionary'})
 
+
+# def learn_list(request):
+#     lvl = request.GET.get('level')
+#     qnt = request.GET.get('quantity')
+#     pers = request.user
+#     if request.method == 'POST':
+#         json_form = request.POST['only_field']
+#         words = json.loads(json_form)
+#         for word in words:
+#             w = Words.objects.get(pk=word['pk'])
+#             w.level = word['level']
+#             w.save()
+#         return redirect('dictionary:start')
+#     else:
+#         if not qnt:
+#             qnt = 5
+#         else:
+#             qnt = int(qnt)
+#         if not lvl:
+#             ws = Words.objects.filter(person=pers)[:qnt]
+#         else:
+#             ws = Words.objects.filter(level=int(lvl), person=pers)[:qnt]
+#         data = []
+#         for w in ws:
+#             data.append({'pk':w.pk, 'title': w.title, 'translation': w.translation, 'level': w.level})
+#         data = data[::-1]
+#         json_data = json.dumps(data)
+#         form = UploadFileForm()
+#     return render(request, 'dictionary/learn_list.html',
+#                  {'words': json_data,
+#                          'form': form,
+#                          'title': 'Learning words',
+#                          'current_app': 'dictionary'})
 
 # def study(request):
 #     qnt = int(request.GET.get('quantity'))
