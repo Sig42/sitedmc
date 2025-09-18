@@ -6,16 +6,20 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Hello! It's my study project. </h1>
+    <h1>Привет! Это мой учебный проект.</h1>
     <div class="central_message_box">
-        <h2>You can find here some applications:</h2>
+        <h2>Здесь пока есть два приложения:</h2>
         <div class="left_align_in_central_box">
-            <h4><a class="a_inline" href="{% url 'blog:start' %}">blog</a>
-                -> for blogging apparently;</h4>
-            <h4><a class="a_inline" href="{% url 'dictionary:check_auth' %}">dictionary</a>
-                -> for studying foreign words;</h4>
+            <h4>
+                <a class="a_inline" href="{% url 'blog:start' %}">Blog</a>
+                для ведения блога;
+            </h4>
+            <h4>
+                <a class="a_inline" href="{% url 'dictionary:check_auth' %}">Dictionary</a>
+                для изучения иностранных слов и выражений;
+            </h4>
         </div>
-        <h4 style="margin-top:30px;">other apps are coming...</h4>
+        <h4 style="margin-top:30px;">Другие приложения в процессе...</h4>
     </div>
 <div class="background-img-mark">Photo by
     <a href="https://unsplash.com/@woods?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
