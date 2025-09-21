@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1810324d-680d-4786-b8e4-d295d30a16c8" name="Changes" comment="it seems done; added background img marks;">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/js/learn_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/static/dictionary/js/learn_list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/learn_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/templates/dictionary/learn_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sitedmc/dictionary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/dictionary/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_change_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_complete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/password_reset_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitedmc/users/templates/users/registration_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/sitedmc/users/templates/users/registration_done.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

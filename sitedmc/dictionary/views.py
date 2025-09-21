@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from .forms import UploadFileForm
 from .models import Words
-from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView, FormView
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
 from django.core.exceptions import PermissionDenied
 import json
 
