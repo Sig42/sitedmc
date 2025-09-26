@@ -52,6 +52,7 @@ class LearnWords(LoginRequiredMixin, UpdateView):
         return reverse_lazy('dictionary:learn_words', args=[w.pk])
 
 
+# Добавить слово в список текущего пользователя, проверяем, чтобы слова не дублировались.
 class AddWords(LoginRequiredMixin, CreateView):
     template_name = 'dictionary/add_words.html'
     extra_context = {'current_app': 'dictionary', 'title': 'Adding words'}
@@ -74,6 +75,8 @@ class AddWords(LoginRequiredMixin, CreateView):
             return super().form_valid(form)
 
 
+# Все слова пользователя выводим в табличном виде. Есть возможность фильтрации по
+# уровню, части слова, части перевода.
 class ShowWords(LoginRequiredMixin, ListView):
     model = Words
     template_name = 'dictionary/show_words.html'
@@ -100,6 +103,7 @@ class ShowWords(LoginRequiredMixin, ListView):
         return context
 
 
+# Возможность редактирования ранее созданных слов
 class UpdateWord(LoginRequiredMixin, UpdateView):
     model = Words
     template_name = 'dictionary/update_word.html'
@@ -118,6 +122,7 @@ class UpdateWord(LoginRequiredMixin, UpdateView):
         return reverse_lazy('dictionary:show_words')
 
 
+#  Удаление слов
 class DeleteWord(DeleteView):
     model = Words
     success_url = reverse_lazy('dictionary:start')

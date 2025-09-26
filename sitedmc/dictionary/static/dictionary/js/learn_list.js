@@ -3,56 +3,57 @@ document.getElementById('answer').onkeypress = function(e) {
       document.getElementById('check').click();
       }
     }
-    let some_val = JSON.parse(document.getElementById('words').innerText);
-    let n = some_val.length - 1;
-    let current_word = some_val[n];
-    let cur_word_cnt = 1;
-    const urlParams = new URLSearchParams(window.location.search);
-    const qnt = urlParams.get('quantity');
+
+let some_val = JSON.parse(document.getElementById('words').innerText);
+let n = some_val.length - 1;
+let current_word = some_val[n];
+let cur_word_cnt = 1;
+const urlParams = new URLSearchParams(window.location.search);
+const qnt = urlParams.get('quantity');
 
 
+document.getElementById('translation').innerText = current_word.translation;
+document.getElementById('title').innerText = current_word.title;
+document.getElementById('words_count').innerText = cur_word_cnt + " из " + qnt;
+
+function check() {
+  let ans = document.getElementById('answer').value
+  if (ans == current_word.title) {
+    document.getElementById('answer').style.backgroundColor = 'rgba(204, 255, 230, 0.7)';
+    document.getElementById('check').disabled = true;
+    document.getElementById('next').disabled = false;
+    current_word.level += 1;
+    n -= 1;
+    cur_word_cnt += 1;
+    setTimeout(function() {
+    document.getElementById('next').click();
+    }, 2000);
+    } else {
+    document.getElementById('answer').style.backgroundColor = 'rgba(255, 179, 179, 0.7)';
+  }
+  if (n < 0) {
+    document.getElementById('check').disabled = true;
+    document.getElementById('tip').disabled = true;
+    document.getElementById('next').disabled = true;
+    document.getElementById('congrats').style.display = 'block';
+    document.getElementById('submit').style.display = 'block';
+    document.getElementById('id_only_field').value = JSON.stringify(some_val);
+  } else {
+    current_word = some_val[n];
+  }
+}
+
+function next() {
     document.getElementById('translation').innerText = current_word.translation;
     document.getElementById('title').innerText = current_word.title;
-    document.getElementById('words_count').innerText = cur_word_cnt + " из " + qnt;
+    document.getElementById('words_count').innerText = cur_word_cnt + " из " + qnt;;
+    document.getElementById('answer').value = '';
+    document.getElementById('answer').style.backgroundColor = 'white';
+    document.getElementById('check').disabled = false;
+    document.getElementById('next').disabled = true;
+}
 
-    function check() {
-      let ans = document.getElementById('answer').value
-      if (ans == current_word.title) {
-        document.getElementById('answer').style.backgroundColor = 'rgba(204, 255, 230, 0.7)';
-        document.getElementById('check').disabled = true;
-        document.getElementById('next').disabled = false;
-        current_word.level += 1;
-        n -= 1;
-        cur_word_cnt += 1;
-        setTimeout(function() {
-        document.getElementById('next').click();
-        }, 2000);
-        } else {
-        document.getElementById('answer').style.backgroundColor = 'rgba(255, 179, 179, 0.7)';
-      }
-      if (n < 0) {
-        document.getElementById('check').disabled = true;
-        document.getElementById('tip').disabled = true;
-        document.getElementById('next').disabled = true;
-        document.getElementById('congrats').style.display = 'block';
-        document.getElementById('submit').style.display = 'block';
-        document.getElementById('id_only_field').value = JSON.stringify(some_val);
-      } else {
-        current_word = some_val[n];
-      }
-    }
-
-    function next() {
-        document.getElementById('translation').innerText = current_word.translation;
-        document.getElementById('title').innerText = current_word.title;
-        document.getElementById('words_count').innerText = cur_word_cnt + " из " + qnt;;
-        document.getElementById('answer').value = '';
-        document.getElementById('answer').style.backgroundColor = 'white';
-        document.getElementById('check').disabled = false;
-        document.getElementById('next').disabled = true;
-    }
-
-    function tip() {
-      current_word.level = -1;
-      window.alert("Правильный ответ -> " + current_word.title);
-    }
+function tip() {
+  current_word.level = -1;
+  window.alert("Правильный ответ -> " + current_word.title);
+}
