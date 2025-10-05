@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from .forms import UploadFileForm
+from .forms import UploadFileForm, AddWordForm
 from .models import Words
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
 from django.core.exceptions import PermissionDenied
@@ -57,7 +57,7 @@ class AddWords(LoginRequiredMixin, CreateView):
     template_name = 'dictionary/add_words.html'
     extra_context = {'current_app': 'dictionary', 'title': 'Adding words'}
     model = Words
-    fields = ['title', 'translation']
+    form_class = AddWordForm
 
     def get_success_url(self):
         return reverse_lazy('dictionary:add_words')
