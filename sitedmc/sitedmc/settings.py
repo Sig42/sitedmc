@@ -9,10 +9,9 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-# SUPERUSER - admin, password - admin1admin
-# dmchankov@gmail.com pass - [{--!12sdf}]
-from pathlib import Path
 
+from pathlib import Path
+from decouple import config
 from django.conf.global_settings import LOGIN_REDIRECT_URL, EMAIL_BACKEND, EMAIL_HOST_PASSWORD, DEFAULT_FROM_EMAIL, \
     SERVER_EMAIL
 
@@ -24,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w*t5qtal4rp42x3w5k)80j49*9kzeaqlu5+bo5#b@r2l0-%k**'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,11 +81,11 @@ WSGI_APPLICATION = 'sitedmc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sitedmc_db',
-        'USER': 'postgres',
-        'PASSWORD': '5432',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
     }
 }
 
