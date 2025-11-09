@@ -1,30 +1,39 @@
-{% extends 'base.html' %}
+{% extends 'boot_base.html' %}
 {% load static %}
 
-{% block head %}
-<link type="text/css" rel="stylesheet" href="{% static 'users/css/users.css' %}">
-{% endblock %}
-
 {% block content %}
-    <h1>Привет! Это мой учебный проект.</h1>
-    <div class="central_message_box">
-        <h2>Здесь пока есть два приложения:</h2>
-        <div class="left_align_in_central_box">
-            <h4>
-                <a class="a_inline" href="{% url 'blog:start' %}">Blog</a>
-                для ведения блога;
-            </h4>
-            <h4>
-                <a class="a_inline" href="{% url 'dictionary:check_auth' %}">Dictionary</a>
-                для изучения иностранных слов и выражений;
-            </h4>
-        </div>
-        <h4 style="margin-top:30px;">Другие приложения в процессе...</h4>
+    <div class="container text-center py-5">
+        <h1>Это pet-проект.</h1>
+        <p class="fs-3" style="text-indent:25px;">Back-end часть выполнена с использованием фреймворка Django. Front-end часть - при помощи
+        Bootstrap. Здесь находятся два приложения:</p>
     </div>
-<div class="background-img-mark">Photo by
-    <a href="https://unsplash.com/@woods?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        Joe Woods</a> on
-    <a href="https://unsplash.com/photos/white-brick-wall-4Zaq5xY5M_c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        Unsplash</a>
-</div>
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-md-5 mb-3 mb-md-0">
+                <div class="card">
+                  <a href="{% url 'blog:start' %}">
+                    <img src="{% static 'blog/images/desktop_new.jpg' %}" class="card-img-top" alt="Desktop image">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title">Блог</h5>
+                    <p class="card-text">Это приложение для ведения блога. Здесь можно размещать (редактировать, удалять) свои посты. Читать посты других пользователей, фильтруя их по авторам или тэгам.</p>
+                    <a href="{% url 'blog:start' %}" class="btn btn-primary">Перейти</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 mb-md-0">
+                <div class="card">
+                  <a href="{% url 'dictionary:check_auth' %}">
+                    <img src="{% static 'dictionary/images/books.jpg' %}" class="card-img-top" alt="Desktop image">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title">Словарь</h5>
+                    <p class="card-text">Это приложение для изучения иностранных слов. Более полное описание на странице
+                    самого приложения.</p>
+                    <a href="{% url 'dictionary:check_auth' %}" class="btn btn-primary">Перейти</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
 {% endblock %}

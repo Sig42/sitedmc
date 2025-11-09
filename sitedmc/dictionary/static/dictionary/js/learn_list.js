@@ -19,7 +19,7 @@ document.getElementById('words_count').innerText = cur_word_cnt + " из " + qnt
 function check() {
   let ans = document.getElementById('answer').value
   if (ans == current_word.title) {
-    document.getElementById('answer').style.backgroundColor = 'rgba(204, 255, 230, 0.7)';
+    document.getElementById('answer').className = 'form-control text-bg-success';
     document.getElementById('check').disabled = true;
     document.getElementById('next').disabled = false;
     current_word.level += 1;
@@ -29,7 +29,7 @@ function check() {
     document.getElementById('next').click();
     }, 2000);
     } else {
-    document.getElementById('answer').style.backgroundColor = 'rgba(255, 179, 179, 0.7)';
+    document.getElementById('answer').className = 'form-control text-bg-danger';
   }
   if (n < 0) {
     document.getElementById('check').disabled = true;
@@ -48,7 +48,7 @@ function next() {
     document.getElementById('title').innerText = current_word.title;
     document.getElementById('words_count').innerText = cur_word_cnt + " из " + qnt;;
     document.getElementById('answer').value = '';
-    document.getElementById('answer').style.backgroundColor = 'white';
+    document.getElementById('answer').className = 'form-control text-bg-dark';
     document.getElementById('check').disabled = false;
     document.getElementById('next').disabled = true;
 }

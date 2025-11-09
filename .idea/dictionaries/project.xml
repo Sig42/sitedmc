@@ -2,9 +2,12 @@
   <dictionary name="project">
     <words>
       <w>endblock</w>
+      <w>endfor</w>
       <w>sitedmc</w>
       <w>сериализации</w>
       <w>сериализовать</w>
+      <w>тэги</w>
+      <w>тэгом</w>
     </words>
   </dictionary>
 </component>

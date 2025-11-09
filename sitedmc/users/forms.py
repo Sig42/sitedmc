@@ -34,8 +34,8 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class UserProfileForm(forms.ModelForm):
-    username = forms.CharField(disabled=True,  label='Username', widget=forms.TextInput())
-    email = forms.CharField(disabled=True,  label='E-mail', widget=forms.TextInput())
+    username = forms.CharField(label='Username', widget=forms.TextInput())
+    email = forms.CharField(label='E-mail', widget=forms.TextInput())
 
     class Meta:
         model = get_user_model()

@@ -1,0 +1,24 @@
+{% extends 'boot_base.html' %}
+
+{% block content %}
+<div class="container text-center py-4">
+    <h1>{{ title }}</h1>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-sm-6 py-4 px-4 text-center rounded bg-body-tertiary">
+        <p align="justify" class="fs-6" style="text-indent:25px;">В этом приложении Вы можете добавлять свои слова (фразы)
+        и переводы к ним. У каждого слова (фразы) есть свой счетчик (уровень), к которому прибавляется 1, если Вы
+        правильно ввели перевод для него. Если Вы нажали кнопку "Подсказка", то счетчик обнуляется.</p>
+        <p align="justify" class="fs-6" style="text-indent:25px;">При этом слова для изучения подаются в отсортированном
+        виде, начиная со слов с наименьшим счетчиком. Таким образом, слова, которые Вы хорошо запомнили, будут
+        в конце списка.</p>
+        <p align="justify" class="fs-6 fw-bold" style="text-indent:25px;">У каждого пользователя свой список, поэтому, чтобы использовать это приложение, требуется
+        регистрация.</p>
+        <hr>
+        <a class="btn btn-primary" href="{% url 'users:login' %}">Войти</a>
+        <a class="btn btn-primary" href="{% url 'users:registration' %}">Зарегистрироваться</a>
+      </div>
+    </div>
+</div>
+{% endblock %}

@@ -10,16 +10,7 @@
 <div class="form-container">
     <form method="POST">
         {% csrf_token %}
-        {% for f in form %}
-            <div class="row">
-                <div class="col-25">
-                    <label for="{{ f.id_for_label }}">{{ f.label }}</label>
-                </div>
-                <div class="col-65">
-                    {{ f }}
-                </div>
-            </div>
-        {% endfor %}
+        {{ form.as_p }}
         <input type="submit" value="Registrate">
     </form>
 </div>

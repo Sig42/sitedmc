@@ -16,7 +16,6 @@ urlpatterns = [
     path('authors', views.AuthorsList.as_view(), name='authors'),
     path('tags', views.TagsList.as_view(), name='tags'),
     path('my_posts', views.MyPosts.as_view(), name='my_posts'),
-    # path('get_some/<int:pk>', views.get_some, name='get_some'),
 ]
 
 handler404 = views.page_not_found

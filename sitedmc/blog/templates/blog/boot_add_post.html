@@ -1,0 +1,21 @@
+{% extends 'boot_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center py-4">
+    <h1>{{ title }}</h1>
+</div>
+<div class="container-fluid">
+    <div class="row align-items-center justify-content-evenly">
+      {% include 'blog/includes/left_part.html' %}
+      <div class="col-lg-6 col-11 order-lg-2 order-1 mt-4 mt-lg-0 py-2 rounded bg-body-tertiary">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-success" value="Сохранить">
+        </form>
+      </div>
+      {% include 'blog/includes/right_part.html' %}
+    </div>
+</div>
+{% endblock %}

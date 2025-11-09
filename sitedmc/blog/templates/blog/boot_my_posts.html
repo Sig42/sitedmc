@@ -1,0 +1,33 @@
+{% extends 'boot_base.html' %}
+
+{% block content %}
+<div class="container text-center py-lg-5 py-2">
+    <h1>{{ title }}</h1>
+</div>
+<div class="container-fluid">
+    <div class="row align-items-center justify-content-evenly">
+      {% include 'blog/includes/left_part.html' %}
+      <div class="col-lg-6 col-11 order-lg-2 order-1 my-1 py-4 text-center rounded bg-body-tertiary">
+        {% for post in posts %}
+            <h2>{{ post.title }}</h2>
+            <h4>создан {{ post.create_time }}</h4>
+            <h4>последнее редактирование {{ post.update_time }}</h4>
+            <button class="btn btn-primary mt-1">
+                <a class="text-decoration-none link-light" href="{{ post.get_absolute_url }}">Читать</a>
+            </button>
+            <button class="btn btn-primary mt-1">
+                <a class="text-decoration-none link-light" href="{% url 'blog:update_post' post.pk %}">Редактировать</a>
+            </button>
+            <button class="btn btn-primary mt-1">
+                <a class="text-decoration-none link-light" href="{% url 'blog:delete_post' post.pk %}">Удалить</a>
+            </button>
+            {% if not forloop.last %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+      </div>
+      {% include 'blog/includes/right_part.html' %}
+    </div>
+</div>
+{% include 'blog/includes/paginator.html' %}
+{% endblock %}

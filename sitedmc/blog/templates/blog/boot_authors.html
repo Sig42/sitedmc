@@ -1,0 +1,26 @@
+{% extends 'boot_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center py-lg-5 py-2">
+    <h1>{{ title }}</h1>
+</div>
+<div class="container-fluid">
+    <div class="row align-items-center justify-content-evenly">
+        {% include 'blog/includes/left_part.html' %}
+        <div class="col-lg-6 col-11 order-lg-2 order-1 mt-4 mt-lg-0 py-2 text-center rounded bg-body-tertiary">
+            {% for author in authors %}
+                <h2>{{ author.username }}</h2>
+                <h4>присоединился {{ author.date_joined }}</h4>
+                <a class="btn-link link-light link-underline-opacity-10 link-underline-opacity-100-hover link-offset-2"
+                   href="{% url 'blog:posts_by_author' author.pk %}">Смотреть посты автора</a>
+                {% if not forloop.last %}
+                <hr>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% include 'blog/includes/right_part.html' %}
+    </div>
+</div>
+{% include 'blog/includes/paginator.html' %}
+{% endblock %}

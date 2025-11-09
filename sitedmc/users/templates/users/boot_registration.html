@@ -1,0 +1,45 @@
+{% extends 'boot_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center py-5">
+<h1>Регистрация</h1>
+</div>
+
+<div class="container mt-2">
+    <form method="POST">
+        {% csrf_token %}
+        {% for f in form %}
+            <div class="mb-3">
+                <label for="{{ f.id_for_label }}" class="form-label">
+                    {{ f.label }}
+                    {% if f.field.required %} <span class="text-danger">*</span> {% endif %}
+                </label>
+                <input type="{{ f.field.widget.input_type }}"
+                       name="{{ f.name }}"
+                       id="{{ f.id_for_label }}"
+                       class="form-control {% if f.errors %}is-invalid{% endif %}"
+                       value="{{ f.value|default:'' }}"
+                       placeholder="{{ f.field.widget.attrs.placeholder|default:'' }}">
+                {% if f.label == 'Password'%}
+                    <div class="form-text">Пароль должен быть не менее 8 знаков. Пароль не может быть схожим с именем и
+                        не может быть распространенным.</div>
+                {% endif %}
+            </div>
+            {% if f.errors %}
+                <div class="invalid-feedback">
+                    {% for error in f.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if f.help_text %}
+                <div class="form-text">{{ f.help_text }}</div>
+            {% endif %}
+
+
+        {% endfor %}
+        <button type="submit" class="btn btn-success">Зарегистрировать</button>
+    </form>
+</div>
+{% endblock %}

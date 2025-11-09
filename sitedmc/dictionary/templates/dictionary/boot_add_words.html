@@ -1,0 +1,46 @@
+{% extends 'boot_base.html' %}
+
+{% block content %}
+<div class="container text-center py-4">
+    <h1>{{ title }}</h1>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-6 py-4 text-center rounded bg-body-tertiary">
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label">
+                        {{ field.label }}
+                        {% if field.field.required %}<span class="text-danger">*</span>{% endif %}
+                    </label>
+                    <input type="{{ field.field.widget.input_type }}"
+                           name="{{ field.name }}"
+                           id="{{ field.id_for_label }}"
+                           class="form-control {% if field.errors %}is-invalid{% endif %}"
+                           value="{{ field.value|default:'' }}"
+                           placeholder="{{ field.field.widget.attrs.placeholder|default:'' }}">
+
+                    {% if field.help_text %}
+                        <div class="form-text">{{ field.help_text }}</div>
+                    {% endif %}
+
+                    {% if field.errors %}
+                        <div class="invalid-feedback">
+                            {% for error in field.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <input type="submit" class="btn btn-primary" value="Сохранить">
+            <button class="btn btn-primary my-1">
+                <a class="text-decoration-none link-light" href="{% url 'dictionary:start' %}">Меню</a>
+            </button>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock %}

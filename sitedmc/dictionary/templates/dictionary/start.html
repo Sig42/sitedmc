@@ -3,11 +3,11 @@
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'dictionary/css/dictionary.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
 
 {% block content %}
 <div class="central-container">
-    <h1>Словарь</h1>
     <p>В этом приложении Вы можете добавлять свои слова (фразы) и переводы к ним.
     У каждого слова (фразы) есть свой счетчик (уровень), к которому прибавляется 1, если Вы правильно ввели перевод
     для него. Если Вы нажали кнопку Tip, то счетчик обнуляется.

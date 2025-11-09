@@ -1,0 +1,41 @@
+{% extends 'boot_base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="container text-center py-4">
+    <h1>{{ title }}</h1>
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-6 py-4 text-center rounded bg-body-tertiary">
+        <h3>Выберите уровень и количество слов</h3>
+        <form action="{% url 'dictionary:learn_list' %}" method="get">
+            <div class="mb-3">
+                <label class="form-label" for="id_level">Уровень</label>
+                <select class="form-select" id="id_level" name="level">
+                {% for c in choices %}
+                <option value="{{ c }}">{{ c }}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <label class="form-label" for="id_qnt">Количество</label>
+            <input class="form-control" id="id_qnt" type="number" max="{{ quantity }}" name="quantity">
+            <hr>
+            <button class="btn btn-primary my-1" type="submit">Выбрать</button>
+            <a class="btn btn-primary my-1" href="{% url 'dictionary:start' %}">Главное меню</a>
+        </form>
+      </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('id_level').value = 'All';
+    {% if quantity > 10 %}
+        document.getElementById('id_qnt').value = 10;
+    {% else %}
+        document.getElementById('id_qnt').value = {{ quantity }};
+    {% endif%}
+</script>
+
+{% endblock %}

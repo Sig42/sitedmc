@@ -4,19 +4,28 @@
 
 body {
     font-family: Verdana, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 h1 {
     font-family: Georgia, serif;
+    font-size: 30px;
     text-align: center;
     margin-top: 50px;
 }
 
-h2, h3 {
+h2 {
     font-family: Georgia, serif;
     text-align: center;
     margin-top: 20px;
+    font-size: 24px;
+}
+
+h3 {
+    font-family: Georgia, serif;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 button {
@@ -43,7 +52,7 @@ ul {
     background-color: rgb(255, 255, 255);
     font-family: Lora, serif;
     font-variant: small-caps;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .menu_li {

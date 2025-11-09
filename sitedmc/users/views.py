@@ -7,16 +7,17 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.urls import reverse, reverse_lazy
 from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm, ChangePasswordForm
 
+
 def home(request):
-    title = 'Home page'
+    title = 'Главная'
     current_app = 'Home'
     return render(request, 'users/home.html', {'title': title, 'current_app': current_app})
 
 
 class LoginUser(LoginView):
     form_class = UserLoginForm
-    template_name = 'users/login.html'
-    extra_context = {'title': 'Authentication'}
+    template_name = 'users/boot_login.html'
+    extra_context = {'title': 'Аутентификация'}
 
     def get_success_url(self):
         return reverse_lazy('users:home')
@@ -29,15 +30,15 @@ def logout_user(request):
 
 class UserRegistration(CreateView):
     form_class = UserRegistrationForm
-    template_name = 'users/registration.html'
-    extra_context = {'title': 'Registration'}
+    template_name = 'users/boot_registration.html'
+    extra_context = {'title': 'Регистрация'}
     success_url = reverse_lazy('users:login')
 
 
 class UserProfile(LoginRequiredMixin, UpdateView):
     model = get_user_model()
     form_class = UserProfileForm
-    template_name = 'users/profile.html'
+    template_name = 'users/boot_profile.html'
 
     def get_success_url(self):
         return reverse_lazy('users:profile')
@@ -48,5 +49,5 @@ class UserProfile(LoginRequiredMixin, UpdateView):
 
 class ChangePassword(PasswordChangeView):
     form_class = ChangePasswordForm
-    template_name = 'users/password_change.html'
+    template_name = 'users/boot_password_change.html'
     success_url = reverse_lazy('users:password_change_done')

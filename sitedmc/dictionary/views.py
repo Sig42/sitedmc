@@ -21,8 +21,8 @@ def check_auth(request):
 # Если нет - ему будет доступна только кнопка add, добавляющая слова.
 # Если уже есть слова - доступен полный функционал.
 class Start(TemplateView):
-    template_name = 'dictionary/start.html'
-    extra_context = {'current_app': 'dictionary', 'title': 'Dictionary'}
+    template_name = 'dictionary/boot_start.html'
+    extra_context = {'current_app': 'dictionary', 'title': 'Словарь'}
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -33,29 +33,28 @@ class Start(TemplateView):
 # View для незарегистрированного пользователя.
 # Вместо кнопок стандартного функционала - кнопки log in / registrate.
 class StartNotAuth(TemplateView):
-    template_name = 'dictionary/start_not_auth.html'
-    extra_context = {'current_app': 'dictionary', 'title': 'Dictionary'}
-
+    template_name = 'dictionary/boot_start_not_auth.html'
+    extra_context = {'current_app': 'dictionary', 'title': 'Требуется регистрация'}
 
 # Это был первый вариант работы приложения.
 # Get-запрос - получаем одно слово, post-запрос - изменяем поле level в соответствии с результатом.
 # С практической точки зрения оказалось неудобно.
-class LearnWords(LoginRequiredMixin, UpdateView):
-    model = Words
-    template_name = 'dictionary/learn_words.html'
-    extra_context = {'current_app': 'dictionary', 'title': 'Learning words'}
-    context_object_name = 'words'
-    fields = ['level']
-
-    def get_success_url(self):
-        w = Words.objects.filter(person=self.request.user)[0]
-        return reverse_lazy('dictionary:learn_words', args=[w.pk])
+# class LearnWords(LoginRequiredMixin, UpdateView):
+#     model = Words
+#     template_name = 'dictionary/learn_words.html'
+#     extra_context = {'current_app': 'dictionary', 'title': 'Learning words'}
+#     context_object_name = 'words'
+#     fields = ['level']
+#
+#     def get_success_url(self):
+#         w = Words.objects.filter(person=self.request.user)[0]
+#         return reverse_lazy('dictionary:learn_words', args=[w.pk])
 
 
 # Добавить слово в список текущего пользователя, проверяем, чтобы слова не дублировались.
 class AddWords(LoginRequiredMixin, CreateView):
-    template_name = 'dictionary/add_words.html'
-    extra_context = {'current_app': 'dictionary', 'title': 'Adding words'}
+    template_name = 'dictionary/boot_add_words.html'
+    extra_context = {'current_app': 'dictionary', 'title': 'Добавление слова'}
     model = Words
     form_class = AddWordForm
 
@@ -79,8 +78,8 @@ class AddWords(LoginRequiredMixin, CreateView):
 # уровню, части слова, части перевода.
 class ShowWords(LoginRequiredMixin, ListView):
     model = Words
-    template_name = 'dictionary/show_words.html'
-    extra_context = {'current_app': 'dictionary', 'title': 'Viewing words'}
+    template_name = 'dictionary/boot_show_words.html'
+    extra_context = {'current_app': 'dictionary', 'title': 'Просмотр словаря'}
     context_object_name = 'words'
 
     def get_queryset(self):
@@ -106,8 +105,8 @@ class ShowWords(LoginRequiredMixin, ListView):
 # Возможность редактирования ранее созданных слов
 class UpdateWord(LoginRequiredMixin, UpdateView):
     model = Words
-    template_name = 'dictionary/update_word.html'
-    extra_context = {'current_app': 'dictionary', 'title': 'Editing word'}
+    template_name = 'dictionary/boot_update_word.html'
+    extra_context = {'current_app': 'dictionary', 'title': 'Редактирование слова'}
     context_object_name = 'word'
     fields = ['title', 'translation', 'level']
 
@@ -126,8 +125,8 @@ class UpdateWord(LoginRequiredMixin, UpdateView):
 class DeleteWord(DeleteView):
     model = Words
     success_url = reverse_lazy('dictionary:start')
-    template_name = 'dictionary/delete_word.html'
-    extra_context = {'current_app': 'dictionary', 'title': 'Deleting word'}
+    template_name = 'dictionary/boot_delete_word.html'
+    extra_context = {'current_app': 'dictionary', 'title': 'Удаление слова'}
 
     def get_object(self, **kwargs):
         ob = super().get_object(**kwargs)
@@ -140,10 +139,12 @@ class DeleteWord(DeleteView):
 # Уточняю у пользователя информацию о количестве слов и их уровне (поле level).
 # Затем передаю эту информацию в функцию learn_list через url.
 def pre_learn(request):
-    choices = list(Words.objects.values_list('level', flat=True).distinct())
+    user_words = Words.objects.filter(person=request.user)
+    choices = list(user_words.values_list('level', flat=True).distinct())
+    qnt = len(user_words)
     choices.append('All')
-    context = {'current_app': 'dictionary', 'title': "Choosing words", 'choices': choices}
-    return render(request, 'dictionary/pre_learn.html', context=context)
+    context = {'current_app': 'dictionary', 'title': "Выбор слов", 'choices': choices, 'quantity': qnt}
+    return render(request, 'dictionary/boot_pre_learn.html', context=context)
 
 
 def learn_list(request):
@@ -173,8 +174,8 @@ def learn_list(request):
         data = data[::-1]
         json_data = json.dumps(data)
         form = UploadFileForm()
-    return render(request, 'dictionary/learn_list.html',
+    return render(request, 'dictionary/boot_learn_list.html',
                  {'words': json_data,
                          'form': form,
-                         'title': 'Learning words',
+                         'title': 'Изучение слов',
                          'current_app': 'dictionary'})

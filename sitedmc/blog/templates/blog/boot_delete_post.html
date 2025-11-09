@@ -1,0 +1,24 @@
+{% extends 'boot_base.html' %}
+
+{% block content %}
+<div class="container text-center py-lg-5 py-2">
+    <h1>{{ title }}</h1>
+</div>
+<div class="container-fluid">
+    <div class="row align-items-center justify-content-evenly">
+      {% include 'blog/includes/left_part.html' %}
+      <div class="col-lg-6 col-11 order-lg-2 order-1 my-1 py-4 text-center rounded bg-body-tertiary">
+        <h2>Вы уверены, что хотите удалить пост "{{ object }}"?</h2>
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-danger">Удалить</button>
+          <button class="btn btn-success">
+              <a class="text-decoration-none link-light" href="{% url 'blog:start' %}">Отмена</a>
+          </button>
+        </form>
+      </div>
+      {% include 'blog/includes/right_part.html' %}
+    </div>
+</div>
+{% endblock %}

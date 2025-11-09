@@ -1,0 +1,26 @@
+{% extends 'boot_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center py-4">
+    <h1>Это архив {{ year }} года.</h1>
+</div>
+<div class="container-fluid">
+    <div class="row align-items-center justify-content-evenly">
+      {% include 'blog/includes/left_part.html' %}
+      <div class="col-lg-6 col-11 order-lg-2 order-1 mt-4 mt-lg-0 py-2 text-center rounded bg-body-tertiary">
+        {% for item in page_obj %}
+            <h2>{{ item.title }}</h2>
+            <h4>создано {{ item.author.username|default:'Unknown' }}</h4>
+            <a href="{{ item.get_absolute_url }}">Read</a>
+            {% if not forloop.last %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+      </div>
+      {% include 'blog/includes/right_part.html' %}
+    </div>
+</div>
+
+{% include 'blog/includes/paginator.html' %}
+{% endblock %}

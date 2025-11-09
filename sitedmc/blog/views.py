@@ -6,15 +6,15 @@ from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from .models import Blog, Tag
-from.forms import AddPostForm
+from.forms import AddPostForm, TestForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
 class Start(ListView):
     # model = Blog
-    template_name = 'blog/start.html'
+    template_name = 'blog/boot_start.html'
     context_object_name = 'posts'
-    extra_context = {'title': 'Blog', 'current_app': 'Blog'}
+    extra_context = {'title': 'Последние посты пользователей:', 'current_app': 'Blog'}
     paginate_by = 3
 
     def get_queryset(self):
@@ -22,9 +22,9 @@ class Start(ListView):
 
 
 class AuthorsList(ListView):
-    template_name = 'blog/authors.html'
+    template_name = 'blog/boot_authors.html'
     context_object_name = 'authors'
-    extra_context = {'title': 'Authors', 'current_app': 'Blog'}
+    extra_context = {'title': 'Авторы', 'current_app': 'Blog'}
     paginate_by = 3
 
     def get_queryset(self):
@@ -32,9 +32,9 @@ class AuthorsList(ListView):
 
 
 class TagsList(ListView):
-    template_name = 'blog/tags.html'
+    template_name = 'blog/boot_tags.html'
     context_object_name = 'tags'
-    extra_context = {'title': 'Tags', 'current_app': 'Blog'}
+    extra_context = {'title': 'Тэги', 'current_app': 'Blog'}
     paginate_by = 3
 
     def get_queryset(self):
@@ -42,9 +42,9 @@ class TagsList(ListView):
 
 
 class MyPosts(LoginRequiredMixin, ListView):
-    template_name = 'blog/my_posts.html'
+    template_name = 'blog/boot_my_posts.html'
     context_object_name = 'posts'
-    extra_context = {'title': 'My posts', 'current_app': 'Blog'}
+    extra_context = {'title': 'Мои посты', 'current_app': 'Blog'}
     paginate_by = 3
     # PermissionRequiredMixin, permission_required = 'blog.change_blog'
 
@@ -54,23 +54,23 @@ class MyPosts(LoginRequiredMixin, ListView):
 
 class AddPost(LoginRequiredMixin, CreateView):
     form_class = AddPostForm
-    template_name = 'blog/add_post.html'
+    template_name = 'blog/boot_add_post.html'
     success_url = reverse_lazy('blog:start') # Client will be directed to absolute_url, if this argument is turned off.
-    extra_context = {'title': 'Add new post', 'current_app': 'Blog'}
-    # permission_required = 'blog.add_blog'
-    # PermissionRequiredMixin,
+    extra_context = {'title': 'Добавление нового поста', 'current_app': 'Blog'}
+
     def form_valid(self, form):
         x = form.save(commit=False)
         x.author = self.request.user
+        # x.tags.set(self.request.POST.get('tags'))
         return super().form_valid(form)
 
 
 class UpdatePost(UpdateView):
     model = Blog
     fields = ('title', 'content', 'is_published',  'tags')
-    template_name = 'blog/add_post.html'
+    template_name = 'blog/boot_add_post.html'
     success_url = reverse_lazy('blog:start')
-    extra_context = {'title': 'Editing post', 'current_app': 'Blog'}
+    extra_context = {'title': 'Редактирование поста', 'current_app': 'Blog'}
 
     def get_object(self, **kwargs):
         ob = super().get_object(**kwargs)
@@ -83,8 +83,8 @@ class UpdatePost(UpdateView):
 class DeletePost(DeleteView):
     model = Blog
     success_url = reverse_lazy('blog:start')
-    template_name = 'blog/delete_post.html'
-    extra_context = {'title': 'Deleting post', 'current_app': 'Blog'}
+    template_name = 'blog/boot_delete_post.html'
+    extra_context = {'title': 'Удаление поста', 'current_app': 'Blog'}
 
     def get_object(self, **kwargs):
         ob = super().get_object(**kwargs)
@@ -95,7 +95,7 @@ class DeletePost(DeleteView):
 
 
 class PostsByAuthor(ListView):
-    template_name = 'blog/posts_by_author.html'
+    template_name = 'blog/boot_posts_by_author.html'
     context_object_name = 'posts'
     extra_context = {'current_app': 'Blog'}
     paginate_by = 3
@@ -105,15 +105,16 @@ class PostsByAuthor(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        b_name = self.request.user.username
+        author_pk = self.kwargs['author_pk']
+        b_name = get_user_model().objects.get(pk=author_pk)
         context['blogger_name'] = b_name
-        context['title'] = f'Posts of {b_name}'
+        context['title'] = f'Посты пользователя {b_name}'
         return context
 
 
 class ShowPost(DetailView):
     # model = Blog
-    template_name = 'blog/show_post.html'
+    template_name = 'blog/boot_show_post.html'
     context_object_name = 'post'
     slug_url_kwarg = 'post_slug'
     extra_context = {'current_app': 'Blog'}
@@ -131,8 +132,8 @@ def archive(request, year):
     paginator = Paginator(post_list, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'blog/archive.html',
-                  {'year': year, 'title': f'{year} archive',
+    return render(request, 'blog/boot_archive.html',
+                  {'year': year, 'title': f'Архив {year} года',
                    'page_obj': page_obj, 'paginator': paginator, 'current_app': 'Blog'})
 
 
@@ -141,7 +142,7 @@ def page_not_found(request, exception):
 
 
 class PostsByTag(ListView):
-    template_name = 'blog/posts_by_tag.html'
+    template_name = 'blog/boot_posts_by_tag.html'
     context_object_name = 'posts'
     allow_empty = False
     extra_context = {'current_app': 'Blog'}
@@ -153,5 +154,5 @@ class PostsByTag(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         t_name = self.kwargs['tag_slug'].capitalize()
-        context['title'] = f'Posts by tag {t_name}'
+        context['title'] = f'Посты по тэгу {t_name}'
         return context

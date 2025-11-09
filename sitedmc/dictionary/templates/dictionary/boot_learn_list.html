@@ -1,0 +1,35 @@
+{% extends 'boot_base.html' %}
+{% load static %}
+
+{% block content %}
+<p id="words" style="display:none;">{{ words }}</p>
+<p id="title" style="display:none;"></p>
+<div class="container-fluid mt-3">
+    <div class="row justify-content-center">
+      <div class="col-sm-6 py-4 px-4 text-center rounded bg-body-tertiary">
+        <h3 id="words_count"></h3>
+        <h1 id="translation"></h1>
+        <input class="form-control" type="text" id="answer" autofocus>
+        <hr>
+        <button class="btn btn-primary" id="check" onclick=check()>Check</button>
+        <button class="btn btn-primary" id="tip" onclick=tip()>Tip</button>
+        <button class="btn btn-primary" id="next" onclick=next() disabled>Next</button>
+        <div class="my-3" id="congrats" style="display:none;">
+            <h1>
+                Вы прошли весь список!
+            </h1>
+        </div>
+        <form method='POST'>
+            {% csrf_token %}
+            <p style="display:none">{{ form.only_field }}</p>
+            <div id="submit" style="display:none">
+                <input class="btn btn-success" type="submit" value="Сохранить результат">
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
+
+<script src="{% static 'dictionary/js/learn_list.js' %}"></script>
+
+{% endblock %}
